@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Item;
+use App\Models\Order;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -35,7 +36,10 @@ class AdminController extends Controller
         if (!auth()->user()->is_admin){
             return redirect()->route('home');
         }
-        return view('pages.admin.orders');
+
+        $orders = Order::join('users', 'orders.user_id', '=', 'users.id')->get();
+
+        return view('pages.admin.orders', compact('orders'));
     }
     public function categories()
     {
@@ -45,5 +49,7 @@ class AdminController extends Controller
         $categories = Category::all();
         return view('pages.admin.categories', compact('categories'));
     }
+
+
 
 }

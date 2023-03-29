@@ -25,10 +25,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-//        $categories = Category::join('items', 'categories.name', '=', 'items.category_name')
-//            ->get();
         $categories = Category::all();
         $items = Item::all();
+
         return view('home', compact('categories', 'items'));
     }
 
@@ -42,6 +41,7 @@ class HomeController extends Controller
             $cart[$id]['quantity']++;
         } else {
             $cart[$id] = [
+                "id" => $item->id,
                 "name" => $item->name,
                 "images" => $item->images,
                 "ingredients" => $item->ingredients,

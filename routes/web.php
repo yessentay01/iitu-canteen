@@ -20,6 +20,8 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/favorites', [App\Http\Controllers\FavoritesController::class, 'index'])->name('favorites');
 Route::get('/basket', [App\Http\Controllers\BasketController::class, 'index'])->name('basket');
+Route::post('/basket', [App\Http\Controllers\BasketController::class, 'store'])->name('basket.store');
+
 Route::get('/profile', [App\Http\Controllers\ProfileController::class, 'index'])->name('profile');
 
 Route::get('/admin/users', [App\Http\Controllers\AdminController::class, 'users'])->name('admin.users');

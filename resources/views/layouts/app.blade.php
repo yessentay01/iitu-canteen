@@ -22,7 +22,9 @@
     <link href="{{asset('assets/vendor/aos/aos.css" rel="stylesheet')}}">
     <link href="{{asset('assets/vendor/glightbox/css/glightbox.min.css')}}" rel="stylesheet">
     <link href="{{asset('assets/vendor/swiper/swiper-bundle.min.css')}}" rel="stylesheet">
-
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.3.4/jquery.inputmask.bundle.min.js"></script>
     <link href="{{asset('assets/css/main.css')}}" rel="stylesheet">
     <style>
         .active{
@@ -101,7 +103,7 @@
     <script src="{{asset('assets/vendor/purecounter/purecounter_vanilla.js')}}"></script>
     <script src="{{asset('assets/vendor/swiper/swiper-bundle.min.js')}}"></script>
     <script src="{{asset('assets/vendor/php-email-form/validate.js')}}"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js"></script>
     <!-- Template Main JS File -->
     <script src="{{asset('assets/js/main.js')}}"></script>
 </body>

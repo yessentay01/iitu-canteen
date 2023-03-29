@@ -9,9 +9,6 @@
     <meta content="" name="description">
     <meta content="" name="keywords">
 
-    <link href="{{asset('assets/img/favicon.png')}}" rel="icon">
-    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -283,7 +280,7 @@
                     <div class="row gy-5">
                         @foreach($starters as $starter)
                         <div class="col-lg-4 menu-item">
-                            <a href="{{$starter->images}}" class="glightbox"><img
+                                <a href="{{$starter->images}}" class="glightbox"><img
                                     src="{{$starter->images}}" class="menu-img img-fluid" alt=""></a>
                             <h4>{{$starter->name}}</h4>
                             <p class="ingredients">

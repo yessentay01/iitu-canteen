@@ -4,7 +4,7 @@
     <style>
         .profile{
             padding: 100px 10px 80px 10px;
-            max-width: 500px;
+            max-width: 800px;
             margin: auto;
             overflow-y: scroll;
 
@@ -38,6 +38,16 @@
             color:#fff;
             opacity: 0.85;
         }
+        .order{
+            border: 1px solid #a6a6a6;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        .order p{
+            padding: 0px;
+            margin: 0;
+        }
     </style>
     <div class="profile">
         <h1>Hello, {{$user->name}}!</h1>
@@ -54,7 +64,20 @@
         </div>
         <div class="profile_item">
             <h3 class="profile_item_title">My orders</h3>
+            @if(count($orders) > 0)
+                @foreach($orders as $order)
+                    <div class="order">
+                        <p><b> Date:</b> {{$order->created_at}}</p>
+                        <p><b> Order ID:</b> {{$order->order_id}}</p>
+                        <p style="white-space: pre-line;"><b> Products: </b>
+                        {{$order->items}}</p>
+                        <p><b>Total Price:</b> {{$order->price}}₸</p>
+                        <p><b>Status:</b> {{$order->status}}</p>
+                    </div>
+                @endforeach
+            @else
             <p>You don't have any orders yet</p>
+            @endif
         </div>
         <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="profile_logout">Logout</a>
         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">

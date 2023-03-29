@@ -1,152 +1,220 @@
 @extends('layouts.app')
 
 @section('content')
-    {{--    @if(session('cart'))--}}
-    {{--        @foreach(session('cart') as $id => $details)--}}
-    {{--            <div class="row cart-detail">--}}
-    {{--                <div class="col-lg-4 col-sm-4 col-4 cart-detail-img">--}}
-    {{--                    <img src="{{ $details['images'] }}" />--}}
-    {{--                </div>--}}
-    {{--                <div class="col-lg-8 col-sm-8 col-8 cart-detail-product">--}}
-    {{--                    <p>{{ $details['name'] }}</p>--}}
-    {{--                    <span class="price text-info"> ${{ $details['price'] }}</span>--}}
-    {{--                </div>--}}
-    {{--            </div>--}}
-    {{--        @endforeach--}}
-    {{--    @endif--}}
     <style>
-        .basket{
-            padding: 150px 0;
-            max-width: 500px;
+        .basket {
+            padding: 120px 0;
+            max-width: 800px;
             margin:auto;
+        }
+
+        table {
+            border: 1px solid #ccc;
+            border-collapse: collapse;
+            margin: 40px 0 0 0;
+            padding: 0;
+            width: 100%;
+            table-layout: fixed;
+        }
+
+        table caption {
+            font-size: 1.5em;
+            margin: .5em 0 .75em;
+        }
+
+        table tr {
+            background-color: #f8f8f8;
+            border: 1px solid #ddd;
+            padding: .35em;
+        }
+
+        table th,
+        table td {
+            padding: .625em;
+            text-align: center;
+        }
+
+        table th {
+            font-size: .85em;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+        }
+
+        .profile_logout {
+            width: 100%;
+            background-color: var(--color-primary);
+            color: #fff;
+            box-sizing: border-box;
+            display: block;
+            text-align: center;
+            padding: 10px 0;
+            border-radius: 10px;
+        }
+
+        .profile_logout:hover {
+            color: #fff;
+            opacity: 0.85;
+        }
+
+        .step_content {
+            background-color: #fff;
+            margin: 40px 15px;
+            padding: 25px;
+            border-radius: 15px;
+
+        }
+
+        @media screen and (max-width: 600px) {
+            table {
+                border: 0;
+            }
+
+            table caption {
+                font-size: 1.3em;
+            }
+
+            table thead {
+                border: none;
+                clip: rect(0 0 0 0);
+                height: 1px;
+                margin: -1px;
+                overflow: hidden;
+                padding: 0;
+                position: absolute;
+                width: 1px;
+            }
+
+            table tr {
+                border-bottom: 3px solid #ddd;
+                display: block;
+                margin-bottom: .625em;
+            }
+
+            table td {
+                border-bottom: 1px solid #ddd;
+                display: block;
+                font-size: .8em;
+                text-align: right;
+            }
+
+            table td::before {
+                content: attr(data-label);
+                float: left;
+                font-weight: bold;
+                text-transform: uppercase;
+            }
+
+            table td:last-child {
+                border-bottom: 0;
+            }
+        }
+
+        .order_input {
+            width: 100%;
+            height: 35px;
+            border: 1px solid #ccc;
+            padding: 5px 15px;
+            border-radius: 5px;
+            margin: 5px 0 20px 0;
+        }
+
+        h3 {
+            margin-bottom: 20px;
+        }
+        .order_textarea{
+            height: 90px;
         }
     </style>
     <div class="basket">
-        <div class="flex flex-col space-y-4 sm:p-10 dark:bg-gray-900 dark:text-gray-100">
-            <h2 class="text-xl font-semibold">Your cart</h2>
-            <ul class="flex flex-col divide-y divide-gray-700">
-                <li class="flex flex-col py-6 sm:flex-row sm:justify-between">
-                    <div class="flex w-full space-x-2 sm:space-x-4">
-                        <img class="flex-shrink-0 object-cover w-20 h-20 dark:border-transparent rounded outline-none sm:w-32 sm:h-32 dark:bg-gray-500" src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?ixlib=rb-1.2.1&amp;ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&amp;auto=format&amp;fit=crop&amp;w=1350&amp;q=80" alt="Polaroid camera">
-                        <div class="flex flex-col justify-between w-full pb-4">
-                            <div class="flex justify-between w-full pb-2 space-x-2">
-                                <div class="space-y-1">
-                                    <h3 class="text-lg font-semibold leading-snug sm:pr-8">Polaroid camera</h3>
-                                    <p class="text-sm dark:text-gray-400">Classic</p>
-                                </div>
-                                <div class="text-right">
-                                    <p class="text-lg font-semibold">59.99€</p>
-                                    <p class="text-sm line-through dark:text-gray-600">75.50€</p>
-                                </div>
-                            </div>
-                            <div class="flex text-sm divide-x">
-                                <button type="button" class="flex items-center px-2 py-1 pl-0 space-x-1">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="w-4 h-4 fill-current">
-                                        <path d="M96,472a23.82,23.82,0,0,0,23.579,24H392.421A23.82,23.82,0,0,0,416,472V152H96Zm32-288H384V464H128Z"></path>
-                                        <rect width="32" height="200" x="168" y="216"></rect>
-                                        <rect width="32" height="200" x="240" y="216"></rect>
-                                        <rect width="32" height="200" x="312" y="216"></rect>
-                                        <path d="M328,88V40c0-13.458-9.488-24-21.6-24H205.6C193.488,16,184,26.542,184,40V88H64v32H448V88ZM216,48h80V88H216Z"></path>
-                                    </svg>
-                                    <span>Remove</span>
-                                </button>
-                                <button type="button" class="flex items-center px-2 py-1 space-x-1">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="w-4 h-4 fill-current">
-                                        <path d="M453.122,79.012a128,128,0,0,0-181.087.068l-15.511,15.7L241.142,79.114l-.1-.1a128,128,0,0,0-181.02,0l-6.91,6.91a128,128,0,0,0,0,181.019L235.485,449.314l20.595,21.578.491-.492.533.533L276.4,450.574,460.032,266.94a128.147,128.147,0,0,0,0-181.019ZM437.4,244.313,256.571,425.146,75.738,244.313a96,96,0,0,1,0-135.764l6.911-6.91a96,96,0,0,1,135.713-.051l38.093,38.787,38.274-38.736a96,96,0,0,1,135.765,0l6.91,6.909A96.11,96.11,0,0,1,437.4,244.313Z"></path>
-                                    </svg>
-                                    <span>Add to favorites</span>
-                                </button>
-                            </div>
-                        </div>
+        @if(session('cart'))
+            <form action="{{route('basket.store')}}" method="post">
+                @csrf
+                <div id="step1" class="step_content">
+                    <h3>Shopping Cart</h3>
+                    <div class="">
+                        <table>
+                            <thead>
+                            <tr>
+                                <th scope="col">Name</th>
+                                <th scope="col">Price</th>
+                                <th scope="col">Quantity</th>
+                                <th scope="col">Total</th>
+                            </tr>
+                            </thead>
+                            <tboby>
+                                @php
+                                    $total = 0;
+                                    $products = [];
+                                @endphp
+                                @foreach(session('cart') as $id => $details)
+                                    <tr>
+                                        <td scope="row" data-label="Name">{{$details['name']}}</td>
+                                        <td scope="row" data-label="Price">{{$details['price']}}₸</td>
+                                        <td scope="row" data-label="Quantity">{{$details['quantity']}}</td>
+                                        <td scope="row"
+                                            data-label="Total">{{(int)$details['price'] * (int)$details['quantity']}}₸
+                                        </td>
+                                    </tr>
+                                    @php
+                                        $total += (int)$details['price'] * (int)$details['quantity'];
+                                         array_push($products,$details['name'].' X '.$details['quantity'])
+                                    @endphp
+                                @endforeach
+                                <tr>
+                                    <td style="text-align: right" colspan="4"><b>Total: {{$total}}₸</b></td>
+                                </tr>
+                            </tboby>
+                        </table>
+
                     </div>
-                </li>
-                <li class="flex flex-col py-6 sm:flex-row sm:justify-between">
-                    <div class="flex w-full space-x-2 sm:space-x-4">
-                        <img class="flex-shrink-0 object-cover w-20 h-20 dark:border-transparent rounded outline-none sm:w-32 sm:h-32 dark:bg-gray-500" src="https://images.unsplash.com/photo-1504274066651-8d31a536b11a?ixlib=rb-1.2.1&amp;ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&amp;auto=format&amp;fit=crop&amp;w=675&amp;q=80" alt="Replica headphones">
-                        <div class="flex flex-col justify-between w-full pb-4">
-                            <div class="flex justify-between w-full pb-2 space-x-2">
-                                <div class="space-y-1">
-                                    <h3 class="text-lg font-semibold leading-snug sm:pr-8">Replica headphones</h3>
-                                    <p class="text-sm dark:text-gray-400">White</p>
-                                </div>
-                                <div class="text-right">
-                                    <p class="text-lg font-semibold">99.95€</p>
-                                    <p class="text-sm line-through dark:text-gray-600">150€</p>
-                                </div>
-                            </div>
-                            <div class="flex text-sm divide-x">
-                                <button type="button" class="flex items-center px-2 py-1 pl-0 space-x-1">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="w-4 h-4 fill-current">
-                                        <path d="M96,472a23.82,23.82,0,0,0,23.579,24H392.421A23.82,23.82,0,0,0,416,472V152H96Zm32-288H384V464H128Z"></path>
-                                        <rect width="32" height="200" x="168" y="216"></rect>
-                                        <rect width="32" height="200" x="240" y="216"></rect>
-                                        <rect width="32" height="200" x="312" y="216"></rect>
-                                        <path d="M328,88V40c0-13.458-9.488-24-21.6-24H205.6C193.488,16,184,26.542,184,40V88H64v32H448V88ZM216,48h80V88H216Z"></path>
-                                    </svg>
-                                    <span>Remove</span>
-                                </button>
-                                <button type="button" class="flex items-center px-2 py-1 space-x-1">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="w-4 h-4 fill-current">
-                                        <path d="M453.122,79.012a128,128,0,0,0-181.087.068l-15.511,15.7L241.142,79.114l-.1-.1a128,128,0,0,0-181.02,0l-6.91,6.91a128,128,0,0,0,0,181.019L235.485,449.314l20.595,21.578.491-.492.533.533L276.4,450.574,460.032,266.94a128.147,128.147,0,0,0,0-181.019ZM437.4,244.313,256.571,425.146,75.738,244.313a96,96,0,0,1,0-135.764l6.911-6.91a96,96,0,0,1,135.713-.051l38.093,38.787,38.274-38.736a96,96,0,0,1,135.765,0l6.91,6.909A96.11,96.11,0,0,1,437.4,244.313Z"></path>
-                                    </svg>
-                                    <span>Add to favorites</span>
-                                </button>
-                            </div>
-                        </div>
+                </div>
+                <div id="step2" class="step_content">
+                    <h3>Delivery</h3>
+                    <div>
+                        <label for="date">Date</label>
+                        <input type="date" name="date" class="order_input" id="date" readonly>
+                        <label for="date">Time</label>
+                        <input type="time" name="time" class="order_input" id="time" required>
                     </div>
-                </li>
-                <li class="flex flex-col py-6 sm:flex-row sm:justify-between">
-                    <div class="flex w-full space-x-2 sm:space-x-4">
-                        <img class="flex-shrink-0 object-cover w-20 h-20 dark:border-transparent rounded outline-none sm:w-32 sm:h-32 dark:bg-gray-500" src="https://images.unsplash.com/phodark:to-1594549181132-9045fed330ce?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=675&amp;q=80" alt="Set of travel chargers">
-                        <div class="flex flex-col justify-between w-full pb-4">
-                            <div class="flex justify-between w-full pb-2 space-x-2">
-                                <div class="space-y-1">
-                                    <h3 class="text-lg font-semibold leading-snug sm:pr-8">Set of travel chargers</h3>
-                                    <p class="text-sm dark:text-gray-400">Black</p>
-                                </div>
-                                <div class="text-right">
-                                    <p class="text-lg font-semibold">8.99€</p>
-                                    <p class="text-sm line-through dark:text-gray-600">15.99€</p>
-                                </div>
-                            </div>
-                            <div class="flex text-sm divide-x">
-                                <button type="button" class="flex items-center px-2 py-1 pl-0 space-x-1">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="w-4 h-4 fill-current">
-                                        <path d="M96,472a23.82,23.82,0,0,0,23.579,24H392.421A23.82,23.82,0,0,0,416,472V152H96Zm32-288H384V464H128Z"></path>
-                                        <rect width="32" height="200" x="168" y="216"></rect>
-                                        <rect width="32" height="200" x="240" y="216"></rect>
-                                        <rect width="32" height="200" x="312" y="216"></rect>
-                                        <path d="M328,88V40c0-13.458-9.488-24-21.6-24H205.6C193.488,16,184,26.542,184,40V88H64v32H448V88ZM216,48h80V88H216Z"></path>
-                                    </svg>
-                                    <span>Remove</span>
-                                </button>
-                                <button type="button" class="flex items-center px-2 py-1 space-x-1">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="w-4 h-4 fill-current">
-                                        <path d="M453.122,79.012a128,128,0,0,0-181.087.068l-15.511,15.7L241.142,79.114l-.1-.1a128,128,0,0,0-181.02,0l-6.91,6.91a128,128,0,0,0,0,181.019L235.485,449.314l20.595,21.578.491-.492.533.533L276.4,450.574,460.032,266.94a128.147,128.147,0,0,0,0-181.019ZM437.4,244.313,256.571,425.146,75.738,244.313a96,96,0,0,1,0-135.764l6.911-6.91a96,96,0,0,1,135.713-.051l38.093,38.787,38.274-38.736a96,96,0,0,1,135.765,0l6.91,6.909A96.11,96.11,0,0,1,437.4,244.313Z"></path>
-                                    </svg>
-                                    <span>Add to favorites</span>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-            </ul>
-            <div class="space-y-1 text-right">
-                <p>Total amount:
-                    <span class="font-semibold">357 €</span>
-                </p>
-                <p class="text-sm dark:text-gray-400">Not including taxes and shipping costs</p>
+                </div>
+                <div id="step3" class="step_content">
+                    <h3>Payment</h3>
+                    <label for="date">Card Number</label>
+                    <input type="text" name="card_number" class="card_number order_input" required>
+                    <label for="date">Expiration date</label>
+                    <input type="month" name="expiration_date" class="order_input" min="2023-03" value="2023-03" required>
+                    <label for="date">CVV</label>
+                    <input type="text" name="cvv" class="cvv order_input" required>
+
+                </div>
+                <div id="step3" class="step_content">
+                    <label for="date">Comment</label>
+                    <textarea name="comment" class="order_input order_textarea" id="" cols="30" rows="10"></textarea>
+                </div>
+                <div class="step_content">
+                    <textarea type="text" name="items"  class="d-none">{{implode(" \n ",$products)}}</textarea>
+                    <input type="text" name="price" value="{{$total}}" readonly class="d-none">
+                    <button type="submit" class="profile_logout">Order</button>
+                    <button onclick="cancel()" class="w-100 text-red-600 mt-2">Cancel</button>
+                </div>
+
+            </form>
+
+        @else
+            <div class="container">
+                <h4>You haven't added anything to your cart yet</h4>
             </div>
-            <div class="flex justify-end space-x-4">
-                <button type="button" class="px-6 py-2 border rounded-md dark:border-violet-400">Back
-                    <span class="sr-only sm:not-sr-only">to shop</span>
-                </button>
-                <button type="button" class="px-6 py-2 border rounded-md dark:bg-violet-400 dark:text-gray-900 dark:border-violet-400">
-                    <span class="sr-only sm:not-sr-only">Continue to</span>Checkout
-                </button>
-            </div>
-        </div>
+
+        @endif
     </div>
+    <script>
+        document.getElementById('date').valueAsDate = new Date();
+        $(document).ready(function () {
+            $('.card_number').inputmask('9999 9999 9999 9999');
+            $('.cvv').inputmask('999');
+        });
+        function cancel(){
 
-
+        }
+    </script>
 @endsection
