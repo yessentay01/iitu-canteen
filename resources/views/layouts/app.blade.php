@@ -12,7 +12,7 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
-
+    <link rel="icon" type="image/x-icon" href="{{asset('assets/img/IITU.PNG')}}">
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
     @vite('resources/css/app.css')
@@ -26,11 +26,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.3.4/jquery.inputmask.bundle.min.js"></script>
     <link href="{{asset('assets/css/main.css')}}" rel="stylesheet">
+    <link href="{{asset('assets/css/style.css')}}" rel="stylesheet">
     <style>
-        .active{
-            color: var(--color-primary);
-            border-top: none;
-        }
+
     </style>
 </head>
 <body>
@@ -49,6 +47,7 @@
                                 <li><a href="{{route('admin.menu')}}">Menu</a></li>
                                 <li><a href="{{route('admin.categories')}}">Categories</a></li>
                                 <li><a href="{{route('admin.orders')}}">Orders</a></li>
+
                             </ul>
                         </nav>
                         <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
@@ -77,10 +76,13 @@
 
                         <span class="btm-nav-label">Favorites</span>
                     </button>
-                    <button onclick="window.location='{{ url("basket") }}'" class="{{Route::currentRouteNamed('basket') ? 'active' : ''}}">
+                    <button onclick="window.location='{{ url("basket") }}'" class="{{Route::currentRouteNamed('basket') ? 'active' : ''}} cartBtn">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
                         </svg>
+                        @if(session('cart'))
+                            <span class="cart_count">{{count(session('cart'))}}</span>
+                        @endif
                         <span class="btm-nav-label">Basket</span>
                     </button>
                     <button onclick="window.location='{{ url("profile") }}'" class="{{Route::currentRouteNamed('profile') ? 'active' : ''}}">

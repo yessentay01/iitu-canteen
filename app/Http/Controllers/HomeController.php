@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Favorites;
 use App\Models\Item;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -27,8 +29,8 @@ class HomeController extends Controller
     {
         $categories = Category::all();
         $items = Item::all();
-
-        return view('home', compact('categories', 'items'));
+        $favorites = Favorites::all();
+        return view('home', compact('categories', 'items', 'favorites'));
     }
 
     public function addToCart($id)
@@ -55,6 +57,21 @@ class HomeController extends Controller
         return redirect()->back()->with('success', 'Product added to cart successfully!');
     }
 
+    public function addToFavorites($id){
+        $items = Favorites::where('item_id', '=', $id)->get();
+        if(count($items) > 0){
+            foreach ($items as $item){
+                DB::table('favorites')->delete($item->id);
+            }
+            return redirect()->back()->with('success', 'Product successfully removed from favorites!');
+        }else{
+            Favorites::create([
+                'user_id' => auth()->user()->id,
+                'item_id' => $id,
+            ]);
+            return redirect()->back()->with('success', 'Product added to favorites successfully!');
+        }
+    }
 
     public function update(Request $request)
     {

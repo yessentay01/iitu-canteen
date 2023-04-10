@@ -23,6 +23,7 @@ Route::get('/basket', [App\Http\Controllers\BasketController::class, 'index'])->
 Route::post('/basket', [App\Http\Controllers\BasketController::class, 'store'])->name('basket.store');
 
 Route::get('/profile', [App\Http\Controllers\ProfileController::class, 'index'])->name('profile');
+Route::get('/profile/download/{id}', [App\Http\Controllers\ProfileController::class, 'downloadReceipt'])->name('receipt');
 
 Route::get('/admin/users', [App\Http\Controllers\AdminController::class, 'users'])->name('admin.users');
 Route::get('/admin/categories', [App\Http\Controllers\AdminController::class, 'categories'])->name('admin.categories');
@@ -30,4 +31,4 @@ Route::get('/admin/orders', [App\Http\Controllers\AdminController::class, 'order
 Route::get('/admin/menu', [App\Http\Controllers\AdminController::class, 'menu'])->name('admin.menu');
 
 Route::get('add-to-cart/{id}', [App\Http\Controllers\HomeController::class, 'addToCart'])->name('add.to.cart');
-
+Route::get('add-to-favorites/{id}', [App\Http\Controllers\HomeController::class , 'addToFavorites'])->name('add.to.favorites');

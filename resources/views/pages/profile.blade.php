@@ -66,13 +66,15 @@
             <h3 class="profile_item_title">My orders</h3>
             @if(count($orders) > 0)
                 @foreach($orders as $order)
+
                     <div class="order">
                         <p><b> Date:</b> {{$order->created_at}}</p>
-                        <p><b> Order ID:</b> {{$order->order_id}}</p>
+                        <p><b> Order ID:</b> #{{$order->order_id}}</p>
                         <p style="white-space: pre-line;"><b> Products: </b>
                         {{$order->items}}</p>
                         <p><b>Total Price:</b> {{$order->price}}₸</p>
                         <p><b>Status:</b> {{$order->status}}</p>
+                        <a target="_blank" href="{{route('receipt', $order->order_id)}}">Download receipt</a>
                     </div>
                 @endforeach
             @else

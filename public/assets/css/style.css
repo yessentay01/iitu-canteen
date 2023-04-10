@@ -1,0 +1,133 @@
+.home {
+    padding: 100px 15px 100px 15px;
+    margin: auto;
+}
+.marginn{
+    margin: auto;
+}
+
+.category_title {
+    font-size: 36px;
+    font-weight: 600;
+    color: var(--color-primary);
+    margin-bottom: 25px;
+}
+.category{
+    margin-bottom: 60px;
+}
+.category_items {
+    overflow: auto;
+    display: flex;
+
+}
+
+.category_items::-webkit-scrollbar {
+    display: none;
+}
+
+.category_item {
+    width: 250px !important;
+    text-align: center;
+    display: inline-block;
+    padding: 15px 15px 45px 15px;
+    background-color: #fff;
+    margin: 0 10px;
+    border-radius: 10px;
+    flex-basis: 200px;
+    flex-grow: 0;
+    flex-shrink: 0;
+    position:relative;
+
+}
+
+.category_item_images {
+    width: 150px;
+    margin: auto;
+}
+
+.category_item_title {
+    font-size: 22px;
+    font-weight: 500;
+    color: var(--color-secondary);
+    font-family: var(--font-secondary);
+    margin-bottom: 5px;
+    width: 100%;
+    white-space: pre-wrap;
+    margin-top: 15px;
+}
+
+.category_item_description {
+    font-family: var(--font-secondary);
+    color: #8d8d9b;
+    margin-bottom: 5px;
+    width: 100%;
+    white-space: pre-wrap;
+}
+
+.category_item_price {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--color-primary);
+}
+.category_item_buttons{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    bottom: 15px;
+    left: 0;
+    right: 0;
+    width: 90%;
+    margin: auto;
+    z-index: 1;
+}
+.category_item_button{
+    background-color: var(--color-primary);
+    color: #fff;
+    padding: 6px;
+    border-radius: 10px;
+    width: 80%;
+    white-space: nowrap;
+}
+.category_item_button:hover{
+    opacity: 0.85;
+    color: #fff;
+}
+.category_item_fav-button svg{
+    width:  26px;
+}
+.hidden {
+    opacity: 0;
+    -webkit-transition:  height 0.5s ease;
+    -moz-transition: height 0.5s ease;
+    -ms-transition: height 0.5s ease;
+    -o-transition: height 0.5s ease;
+    transition: height 0.5s ease;
+    transition-delay:0.2s;}
+
+.visible {
+    opacity: 1;
+    -webkit-transition:  height 0.5s ease;
+    -moz-transition: height 0.5s ease;
+    -ms-transition: height 0.5s ease;
+    -o-transition: height 0.5s ease;
+    transition: height 0.5s ease;
+    transition-delay:0.2s;}
+
+.active{
+    color: var(--color-primary);
+    border-top: none;
+}
+.cartBtn{
+    position: relative;
+}
+.cart_count{
+    position: absolute;
+    top: 0;
+    background-color: var(--color-primary) ;
+    color: #fff;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    right: 50%;
+}
