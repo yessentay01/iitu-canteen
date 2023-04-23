@@ -47,6 +47,7 @@
                                 <li><a href="{{route('admin.menu')}}">Menu</a></li>
                                 <li><a href="{{route('admin.categories')}}">Categories</a></li>
                                 <li><a href="{{route('admin.orders')}}">Orders</a></li>
+                                <li><a href="{{route('admin.feedback')}}">Feedbacks</a></li>
 
                             </ul>
                         </nav>

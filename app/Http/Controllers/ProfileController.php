@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Feedback;
 use App\Models\Order;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade\Pdf;
@@ -28,6 +29,25 @@ class ProfileController extends Controller
         $user = auth()->user();
         $orders = Order::where('orders.user_id', '=', $user->id)->get();
         return view('pages.profile', compact('user','orders'));
+    }
+
+    public function feedback($id){
+        $order = Order::findOrFail($id);
+        if ($order->status !== 'Issued'){
+            return redirect('profile');
+        }else {
+            return view('pages.profile.feedback', compact('order'));
+        }
+    }
+
+    public function feedbackStore(Request $request){
+
+        Feedback::create([
+            'order_id' => $request->order_id,
+            'feedback' => $request->feedback
+        ]);
+
+        return redirect()->route('profile')->with('success', 'Feedback send successfully');
     }
 
     public function downloadReceipt($id){

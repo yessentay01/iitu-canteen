@@ -38,6 +38,10 @@
             color:#fff;
             opacity: 0.85;
         }
+        .feedback_btn{
+            margin-top: 10px;
+            background-color: #0b5ed7;
+        }
         .order{
             border: 1px solid #a6a6a6;
             padding: 15px;
@@ -50,6 +54,11 @@
         }
     </style>
     <div class="profile">
+        @if(session('success'))
+            <div class="alert alert-success" id="successMessage">
+                {{ session('success') }}
+            </div>
+        @endif
         <h1>Hello, {{$user->name}}!</h1>
         <div class="profile_item">
             <h3 class="profile_item_title">Personal data</h3>
@@ -74,7 +83,11 @@
                         {{$order->items}}</p>
                         <p><b>Total Price:</b> {{$order->price}}₸</p>
                         <p><b>Status:</b> {{$order->status}}</p>
-                        <a target="_blank" href="{{route('receipt', $order->order_id)}}">Download receipt</a>
+                        @if($order->status === 'Issued')
+                            <a target="_blank" href="{{route('receipt', $order->order_id)}}">Download receipt</a>
+                            <br>
+                            <a href="{{route('feedback', $order->id)}}" class="profile_logout feedback_btn">Feedback</a>
+                        @endif
                     </div>
                 @endforeach
             @else

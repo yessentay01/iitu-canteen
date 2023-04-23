@@ -23,12 +23,19 @@ Route::get('/basket', [App\Http\Controllers\BasketController::class, 'index'])->
 Route::post('/basket', [App\Http\Controllers\BasketController::class, 'store'])->name('basket.store');
 
 Route::get('/profile', [App\Http\Controllers\ProfileController::class, 'index'])->name('profile');
+Route::get('/profile/feedback/{id}', [App\Http\Controllers\ProfileController::class, 'feedback'])->name('feedback');
+Route::post('/profile/feedback', [App\Http\Controllers\ProfileController::class, 'feedbackStore'])->name('feedback.store');
 Route::get('/profile/download/{id}', [App\Http\Controllers\ProfileController::class, 'downloadReceipt'])->name('receipt');
 
 Route::get('/admin/users', [App\Http\Controllers\AdminController::class, 'users'])->name('admin.users');
 Route::get('/admin/categories', [App\Http\Controllers\AdminController::class, 'categories'])->name('admin.categories');
+
 Route::get('/admin/orders', [App\Http\Controllers\AdminController::class, 'orders'])->name('admin.orders');
+Route::get('/admin/orders/edit/{id}', [App\Http\Controllers\AdminController::class, 'orderEdit'])->name('admin.orders.edit');
+Route::post('/admin/orders/edit', [App\Http\Controllers\AdminController::class, 'updateOrder'])->name('admin.orders.update');
+
 Route::get('/admin/menu', [App\Http\Controllers\AdminController::class, 'menu'])->name('admin.menu');
+Route::get('/admin/feedbacks', [App\Http\Controllers\AdminController::class, 'feedback'])->name('admin.feedback');
 
 Route::get('add-to-cart/{id}', [App\Http\Controllers\HomeController::class, 'addToCart'])->name('add.to.cart');
 Route::get('add-to-favorites/{id}', [App\Http\Controllers\HomeController::class , 'addToFavorites'])->name('add.to.favorites');

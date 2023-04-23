@@ -14,6 +14,7 @@
                 <th data-priority="6">Time</th>
                 <th data-priority="7">Comment</th>
                 <th data-priority="8">Status</th>
+                <th data-priority="8">Actions</th>
             </tr>
             </thead>
             <tbody>
@@ -27,6 +28,7 @@
                     <td data-priority="6">{{$order->time}}</td>
                     <td data-priority="7">{{$order->comment}}</td>
                     <td data-priority="8">{{$order->status}}</td>
+                    <td data-priority="8"><a href="{{route('admin.orders.edit', $order->id)}}" class="btn btn-primary small" style="display: flex; height: 30px !important; align-items: center; vertical-align: center">Edit</a> </td>
                 </tr>
             @endforeach
 
