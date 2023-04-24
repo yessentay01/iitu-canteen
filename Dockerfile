@@ -1,9 +1,11 @@
 FROM php:8.1.8-fpm
-
+FROM node:16.15.1
 # Arguments defined in docker-compose.yml
 ARG user
 ARG uid
 
+RUN mkdir /usr/src/cache
+WORKDIR /usr/src/cache
 # Install system dependencies
 RUN apt-get update && apt-get install -y \
     git \
