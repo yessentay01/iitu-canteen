@@ -70,6 +70,10 @@
                 <p>Email</p>
                 <p class="text-gray-400">{{$user->email}}</p>
             </div>
+            <div class="profile_info">
+                <p>Bonuses</p>
+                <p class="text-gray-400">{{$user->bonus}}₸</p>
+            </div>
         </div>
         <div class="profile_item">
             <h3 class="profile_item_title">My orders</h3>

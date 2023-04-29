@@ -185,9 +185,13 @@
                     <input type="month" name="expiration_date" class="order_input" min="2023-03" value="2023-03" required>
                     <label for="date">CVV</label>
                     <input type="text" name="cvv" class="cvv order_input" required>
-
                 </div>
                 <div id="step3" class="step_content">
+                    <label class="form-control">
+                        <input type="checkbox" name="bonus" />
+                        Spend bonuses? ({{auth()->user()->bonus}}₸)
+                    </label>
+                    <br>
                     <label for="date">Comment</label>
                     <textarea name="comment" class="order_input order_textarea" id="" cols="30" rows="10"></textarea>
                 </div>

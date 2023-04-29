@@ -27,7 +27,7 @@ class ProfileController extends Controller
     public function index()
     {
         $user = auth()->user();
-        $orders = Order::where('orders.user_id', '=', $user->id)->get();
+        $orders = Order::where('orders.user_id', '=', $user->id)->orderBy('created_at', 'desc')->get();
         return view('pages.profile', compact('user','orders'));
     }
 
