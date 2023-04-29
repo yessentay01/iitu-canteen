@@ -8,7 +8,8 @@
             <tr>
                 <th data-priority="1">ID</th>
                 <th data-priority="2">Name</th>
-                <th data-priority="3">name</th>
+                <th data-priority="3">Email</th>
+                <th data-priority="3">Bonus</th>
                 <th data-priority="4">Is admin</th>
             </tr>
             </thead>
@@ -18,6 +19,7 @@
                     <td data-priority="1">{{$user->id}}</td>
                     <td data-priority="2">{{$user->name}}</td>
                     <td data-priority="3">{{$user->email}}</td>
+                    <td data-priority="3">{{$user->bonus}}₸</td>
                     <td data-priority="4">{{$user->is_admin}}</td>
                 </tr>
             @endforeach

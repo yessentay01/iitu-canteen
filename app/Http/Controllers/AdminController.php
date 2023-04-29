@@ -52,8 +52,9 @@ class AdminController extends Controller
             return redirect()->route('home');
         }
 
-        $orders = Order::join('users', 'orders.user_id', '=', 'users.id')->get();
-
+        $orders = Order::join('users', 'orders.user_id', '=', 'users.id')
+            ->select('orders.id as id','orders.order_id as order_id', 'users.name as name', 'orders.items as items', 'orders.card_number as card_number', 'orders.price as price', 'orders.time as time', 'orders.comment as comment', 'orders.status as status')
+            ->get();
         return view('pages.admin.orders', compact('orders'));
     }
 
