@@ -39,9 +39,9 @@
                 <li><a href="#hero">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#menu">Menu</a></li>
-{{--                <li><a href="#events">Events</a></li>--}}
+                {{--                <li><a href="#events">Events</a></li>--}}
                 <li><a href="#partners">Partners</a></li>
-{{--                <li><a href="#gallery">Gallery</a></li>--}}
+                {{--                <li><a href="#gallery">Gallery</a></li>--}}
                 <li><a href="#contact">Contact</a></li>
                 @if (Route::has('login'))
                     @auth
@@ -68,7 +68,10 @@
             <div
                 class="col-lg-5 order-2 order-lg-1 d-flex flex-column justify-content-center align-items-center align-items-lg-start text-center text-lg-start">
                 <h2 data-aos="fade-up">Book and collect <br>your daıly food!</h2>
-                <p data-aos="fade-up" data-aos-delay="100">You can pre-order and schedule the pickup of your daily meals from a food establishment or service. It allows you to save time and avoid waiting in line by ordering in advance, while ensuring that you have access to the meals you need on a regular basis.</p>
+                <p data-aos="fade-up" data-aos-delay="100">You can pre-order and schedule the pickup of your daily meals
+                    from a food establishment or service. It allows you to save time and avoid waiting in line by
+                    ordering in advance, while ensuring that you have access to the meals you need on a regular
+                    basis.</p>
                 <div class="d-flex" data-aos="fade-up" data-aos-delay="200">
                     <a href="{{route('home')}}" class="btn-book-a-table">Order food</a>
                 </div>
@@ -83,34 +86,34 @@
 
 <main id="main">
 
-{{--    <!-- ======= About Section ======= -->--}}
-{{--    <section id="about" class="about">--}}
-{{--        <div class="container" data-aos="fade-up">--}}
+    {{--    <!-- ======= About Section ======= -->--}}
+    {{--    <section id="about" class="about">--}}
+    {{--        <div class="container" data-aos="fade-up">--}}
 
-{{--            <div class="section-header">--}}
-{{--                <h2>About Us</h2>--}}
-{{--                <p>Learn More <span>About Us</span></p>--}}
-{{--            </div>--}}
+    {{--            <div class="section-header">--}}
+    {{--                <h2>About Us</h2>--}}
+    {{--                <p>Learn More <span>About Us</span></p>--}}
+    {{--            </div>--}}
 
-{{--            <div class="row gy-4">--}}
-{{--                <div class="col-lg-7 position-relative about-img"--}}
-{{--                     style="background-image: url('{{asset('assets/img/iitu-partners.jpg')}}') ;" data-aos="fade-up"--}}
-{{--                     data-aos-delay="150">--}}
-{{--                </div>--}}
-{{--                <div class="col-lg-5 d-flex align-items-start" data-aos="fade-up" data-aos-delay="300">--}}
-{{--                    <div class="content ps-0 ps-lg-5">--}}
-{{--                        <p class="fst-italic">--}}
-{{--                            Welcome, dear teacher, student! We are glad to see you here again, so what would you like to order today ?--}}
+    {{--            <div class="row gy-4">--}}
+    {{--                <div class="col-lg-7 position-relative about-img"--}}
+    {{--                     style="background-image: url('{{asset('assets/img/iitu-partners.jpg')}}') ;" data-aos="fade-up"--}}
+    {{--                     data-aos-delay="150">--}}
+    {{--                </div>--}}
+    {{--                <div class="col-lg-5 d-flex align-items-start" data-aos="fade-up" data-aos-delay="300">--}}
+    {{--                    <div class="content ps-0 ps-lg-5">--}}
+    {{--                        <p class="fst-italic">--}}
+    {{--                            Welcome, dear teacher, student! We are glad to see you here again, so what would you like to order today ?--}}
 
-{{--                            <br>--}}
-{{--                            Quickly go to the menu and see what's on today. We are waiting for you and your application with impatience! It tastes better with us!--}}
-{{--                        </p>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
+    {{--                            <br>--}}
+    {{--                            Quickly go to the menu and see what's on today. We are waiting for you and your application with impatience! It tastes better with us!--}}
+    {{--                        </p>--}}
+    {{--                    </div>--}}
+    {{--                </div>--}}
+    {{--            </div>--}}
 
-{{--        </div>--}}
-{{--    </section><!-- End About Section -->--}}
+    {{--        </div>--}}
+    {{--    </section><!-- End About Section -->--}}
 
 
 
@@ -169,7 +172,8 @@
                     <div class="why-box">
                         <h3>Events</h3>
                         <p>
-                            Plan and book a time for your event at the university so you don't have to spend time waiting in line or waiting for a table to become available.
+                            Plan and book a time for your event at the university so you don't have to spend time
+                            waiting in line or waiting for a table to become available.
                         </p>
                         <div class="text-center">
                             <a href="#" class="more-btn">Learn More <i class="bx bx-chevron-right"></i></a>
@@ -257,7 +261,8 @@
                         @foreach($starters as $starter)
                             <div class="col-lg-3 menu-item">
                                 <a href="{{$starter->images}}" class="glightbox"><img
-                                        src="{{$starter->images}}" class="menu-img img-fluid" alt=""></a>
+                                        src="{{url('storage/media/menu/' . $starter->images)}}"
+                                        alt="{{$starter->images}}" class="menu-img img-fluid"></a>
                                 <h4>{{$starter->name}}</h4>
                                 <p class="ingredients">
                                     {{$starter->ingredients}}
@@ -282,7 +287,8 @@
                         @foreach($breakfasts as $breakfast)
                             <div class="col-lg-3 menu-item">
                                 <a href="{{$breakfast->images}}" class="glightbox"><img
-                                        src="{{$breakfast->images}}" class="menu-img img-fluid" alt=""></a>
+                                        src="{{url('storage/media/menu/' . $breakfast->images)}}"
+                                        alt="{{$breakfast->images}}" class="menu-img img-fluid"></a>
                                 <h4>{{$breakfast->name}}</h4>
                                 <p class="ingredients">
                                     {{$breakfast->ingredients}}
@@ -307,7 +313,8 @@
                         @foreach($lunches as $lunch)
                             <div class="col-lg-3 menu-item">
                                 <a href="{{$lunch->images}}" class="glightbox"><img
-                                        src="{{$lunch->images}}" class="menu-img img-fluid" alt=""></a>
+                                        src="{{url('storage/media/menu/' . $lunch->images)}}"
+                                        alt="{{$lunch->images}}" class="menu-img img-fluid"></a>
                                 <h4>{{$lunch->name}}</h4>
                                 <p class="ingredients">
                                     {{$lunch->ingredients}}
@@ -332,7 +339,8 @@
                         @foreach($dinners as $dinner)
                             <div class="col-lg-3 menu-item">
                                 <a href="{{$dinner->images}}" class="glightbox"><img
-                                        src="{{$dinner->images}}" class="menu-img img-fluid" alt=""></a>
+                                        src="{{url('storage/media/menu/' . $dinner->images)}}"
+                                        alt="{{$dinner->images}}" class="menu-img img-fluid" ></a>
                                 <h4>{{$dinner->name}}</h4>
                                 <p class="ingredients">
                                     {{$dinner->ingredients}}
@@ -351,188 +359,188 @@
     </section><!-- End Menu Section -->
 
 
-{{--    <section id="testimonials" class="testimonials section-bg">--}}
-{{--        <div class="container" data-aos="fade-up">--}}
+    {{--    <section id="testimonials" class="testimonials section-bg">--}}
+    {{--        <div class="container" data-aos="fade-up">--}}
 
-{{--            <div class="section-header">--}}
-{{--                <h2>Testimonials</h2>--}}
-{{--                <p>What Are They <span>Saying About Us</span></p>--}}
-{{--            </div>--}}
+    {{--            <div class="section-header">--}}
+    {{--                <h2>Testimonials</h2>--}}
+    {{--                <p>What Are They <span>Saying About Us</span></p>--}}
+    {{--            </div>--}}
 
-{{--            <div class="slides-1 swiper" data-aos="fade-up" data-aos-delay="100">--}}
-{{--                <div class="swiper-wrapper">--}}
+    {{--            <div class="slides-1 swiper" data-aos="fade-up" data-aos-delay="100">--}}
+    {{--                <div class="swiper-wrapper">--}}
 
-{{--                    <div class="swiper-slide">--}}
-{{--                        <div class="testimonial-item">--}}
-{{--                            <div class="row gy-4 justify-content-center">--}}
-{{--                                <div class="col-lg-6">--}}
-{{--                                    <div class="testimonial-content">--}}
-{{--                                        <p>--}}
-{{--                                            <i class="bi bi-quote quote-icon-left"></i>--}}
-{{--                                            Proin iaculis purus consequat sem cure digni ssim donec porttitora entum--}}
-{{--                                            suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et.--}}
-{{--                                            Maecen aliquam, risus at semper.--}}
-{{--                                            <i class="bi bi-quote quote-icon-right"></i>--}}
-{{--                                        </p>--}}
-{{--                                        <h3>Saul Goodman</h3>--}}
-{{--                                        <h4>Ceo &amp; Founder</h4>--}}
-{{--                                        <div class="stars">--}}
-{{--                                            <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i--}}
-{{--                                                class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i--}}
-{{--                                                class="bi bi-star-fill"></i>--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
-{{--                                <div class="col-lg-2 text-center">--}}
-{{--                                    <img src="assets/img/testimonials/testimonials-1.jpg"--}}
-{{--                                         class="img-fluid testimonial-img" alt="">--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                    </div><!-- End testimonial item -->--}}
+    {{--                    <div class="swiper-slide">--}}
+    {{--                        <div class="testimonial-item">--}}
+    {{--                            <div class="row gy-4 justify-content-center">--}}
+    {{--                                <div class="col-lg-6">--}}
+    {{--                                    <div class="testimonial-content">--}}
+    {{--                                        <p>--}}
+    {{--                                            <i class="bi bi-quote quote-icon-left"></i>--}}
+    {{--                                            Proin iaculis purus consequat sem cure digni ssim donec porttitora entum--}}
+    {{--                                            suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et.--}}
+    {{--                                            Maecen aliquam, risus at semper.--}}
+    {{--                                            <i class="bi bi-quote quote-icon-right"></i>--}}
+    {{--                                        </p>--}}
+    {{--                                        <h3>Saul Goodman</h3>--}}
+    {{--                                        <h4>Ceo &amp; Founder</h4>--}}
+    {{--                                        <div class="stars">--}}
+    {{--                                            <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i--}}
+    {{--                                                class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i--}}
+    {{--                                                class="bi bi-star-fill"></i>--}}
+    {{--                                        </div>--}}
+    {{--                                    </div>--}}
+    {{--                                </div>--}}
+    {{--                                <div class="col-lg-2 text-center">--}}
+    {{--                                    <img src="assets/img/testimonials/testimonials-1.jpg"--}}
+    {{--                                         class="img-fluid testimonial-img" alt="">--}}
+    {{--                                </div>--}}
+    {{--                            </div>--}}
+    {{--                        </div>--}}
+    {{--                    </div><!-- End testimonial item -->--}}
 
-{{--                    <div class="swiper-slide">--}}
-{{--                        <div class="testimonial-item">--}}
-{{--                            <div class="row gy-4 justify-content-center">--}}
-{{--                                <div class="col-lg-6">--}}
-{{--                                    <div class="testimonial-content">--}}
-{{--                                        <p>--}}
-{{--                                            <i class="bi bi-quote quote-icon-left"></i>--}}
-{{--                                            Export tempor illum tamen malis malis eram quae irure esse labore quem--}}
-{{--                                            cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua--}}
-{{--                                            noster fugiat irure amet legam anim culpa.--}}
-{{--                                            <i class="bi bi-quote quote-icon-right"></i>--}}
-{{--                                        </p>--}}
-{{--                                        <h3>Sara Wilsson</h3>--}}
-{{--                                        <h4>Designer</h4>--}}
-{{--                                        <div class="stars">--}}
-{{--                                            <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i--}}
-{{--                                                class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i--}}
-{{--                                                class="bi bi-star-fill"></i>--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
-{{--                                <div class="col-lg-2 text-center">--}}
-{{--                                    <img src="assets/img/testimonials/testimonials-2.jpg"--}}
-{{--                                         class="img-fluid testimonial-img" alt="">--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                    </div><!-- End testimonial item -->--}}
+    {{--                    <div class="swiper-slide">--}}
+    {{--                        <div class="testimonial-item">--}}
+    {{--                            <div class="row gy-4 justify-content-center">--}}
+    {{--                                <div class="col-lg-6">--}}
+    {{--                                    <div class="testimonial-content">--}}
+    {{--                                        <p>--}}
+    {{--                                            <i class="bi bi-quote quote-icon-left"></i>--}}
+    {{--                                            Export tempor illum tamen malis malis eram quae irure esse labore quem--}}
+    {{--                                            cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua--}}
+    {{--                                            noster fugiat irure amet legam anim culpa.--}}
+    {{--                                            <i class="bi bi-quote quote-icon-right"></i>--}}
+    {{--                                        </p>--}}
+    {{--                                        <h3>Sara Wilsson</h3>--}}
+    {{--                                        <h4>Designer</h4>--}}
+    {{--                                        <div class="stars">--}}
+    {{--                                            <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i--}}
+    {{--                                                class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i--}}
+    {{--                                                class="bi bi-star-fill"></i>--}}
+    {{--                                        </div>--}}
+    {{--                                    </div>--}}
+    {{--                                </div>--}}
+    {{--                                <div class="col-lg-2 text-center">--}}
+    {{--                                    <img src="assets/img/testimonials/testimonials-2.jpg"--}}
+    {{--                                         class="img-fluid testimonial-img" alt="">--}}
+    {{--                                </div>--}}
+    {{--                            </div>--}}
+    {{--                        </div>--}}
+    {{--                    </div><!-- End testimonial item -->--}}
 
-{{--                    <div class="swiper-slide">--}}
-{{--                        <div class="testimonial-item">--}}
-{{--                            <div class="row gy-4 justify-content-center">--}}
-{{--                                <div class="col-lg-6">--}}
-{{--                                    <div class="testimonial-content">--}}
-{{--                                        <p>--}}
-{{--                                            <i class="bi bi-quote quote-icon-left"></i>--}}
-{{--                                            Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla--}}
-{{--                                            quem veniam duis minim tempor labore quem eram duis noster aute amet eram--}}
-{{--                                            fore quis sint minim.--}}
-{{--                                            <i class="bi bi-quote quote-icon-right"></i>--}}
-{{--                                        </p>--}}
-{{--                                        <h3>Jena Karlis</h3>--}}
-{{--                                        <h4>Store Owner</h4>--}}
-{{--                                        <div class="stars">--}}
-{{--                                            <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i--}}
-{{--                                                class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i--}}
-{{--                                                class="bi bi-star-fill"></i>--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
-{{--                                <div class="col-lg-2 text-center">--}}
-{{--                                    <img src="assets/img/testimonials/testimonials-3.jpg"--}}
-{{--                                         class="img-fluid testimonial-img" alt="">--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                    </div><!-- End testimonial item -->--}}
+    {{--                    <div class="swiper-slide">--}}
+    {{--                        <div class="testimonial-item">--}}
+    {{--                            <div class="row gy-4 justify-content-center">--}}
+    {{--                                <div class="col-lg-6">--}}
+    {{--                                    <div class="testimonial-content">--}}
+    {{--                                        <p>--}}
+    {{--                                            <i class="bi bi-quote quote-icon-left"></i>--}}
+    {{--                                            Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla--}}
+    {{--                                            quem veniam duis minim tempor labore quem eram duis noster aute amet eram--}}
+    {{--                                            fore quis sint minim.--}}
+    {{--                                            <i class="bi bi-quote quote-icon-right"></i>--}}
+    {{--                                        </p>--}}
+    {{--                                        <h3>Jena Karlis</h3>--}}
+    {{--                                        <h4>Store Owner</h4>--}}
+    {{--                                        <div class="stars">--}}
+    {{--                                            <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i--}}
+    {{--                                                class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i--}}
+    {{--                                                class="bi bi-star-fill"></i>--}}
+    {{--                                        </div>--}}
+    {{--                                    </div>--}}
+    {{--                                </div>--}}
+    {{--                                <div class="col-lg-2 text-center">--}}
+    {{--                                    <img src="assets/img/testimonials/testimonials-3.jpg"--}}
+    {{--                                         class="img-fluid testimonial-img" alt="">--}}
+    {{--                                </div>--}}
+    {{--                            </div>--}}
+    {{--                        </div>--}}
+    {{--                    </div><!-- End testimonial item -->--}}
 
-{{--                    <div class="swiper-slide">--}}
-{{--                        <div class="testimonial-item">--}}
-{{--                            <div class="row gy-4 justify-content-center">--}}
-{{--                                <div class="col-lg-6">--}}
-{{--                                    <div class="testimonial-content">--}}
-{{--                                        <p>--}}
-{{--                                            <i class="bi bi-quote quote-icon-left"></i>--}}
-{{--                                            Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor--}}
-{{--                                            noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat--}}
-{{--                                            legam esse veniam culpa fore nisi cillum quid.--}}
-{{--                                            <i class="bi bi-quote quote-icon-right"></i>--}}
-{{--                                        </p>--}}
-{{--                                        <h3>John Larson</h3>--}}
-{{--                                        <h4>Entrepreneur</h4>--}}
-{{--                                        <div class="stars">--}}
-{{--                                            <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i--}}
-{{--                                                class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i--}}
-{{--                                                class="bi bi-star-fill"></i>--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
-{{--                                <div class="col-lg-2 text-center">--}}
-{{--                                    <img src="assets/img/testimonials/testimonials-4.jpg"--}}
-{{--                                         class="img-fluid testimonial-img" alt="">--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                    </div><!-- End testimonial item -->--}}
+    {{--                    <div class="swiper-slide">--}}
+    {{--                        <div class="testimonial-item">--}}
+    {{--                            <div class="row gy-4 justify-content-center">--}}
+    {{--                                <div class="col-lg-6">--}}
+    {{--                                    <div class="testimonial-content">--}}
+    {{--                                        <p>--}}
+    {{--                                            <i class="bi bi-quote quote-icon-left"></i>--}}
+    {{--                                            Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor--}}
+    {{--                                            noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat--}}
+    {{--                                            legam esse veniam culpa fore nisi cillum quid.--}}
+    {{--                                            <i class="bi bi-quote quote-icon-right"></i>--}}
+    {{--                                        </p>--}}
+    {{--                                        <h3>John Larson</h3>--}}
+    {{--                                        <h4>Entrepreneur</h4>--}}
+    {{--                                        <div class="stars">--}}
+    {{--                                            <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i--}}
+    {{--                                                class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i--}}
+    {{--                                                class="bi bi-star-fill"></i>--}}
+    {{--                                        </div>--}}
+    {{--                                    </div>--}}
+    {{--                                </div>--}}
+    {{--                                <div class="col-lg-2 text-center">--}}
+    {{--                                    <img src="assets/img/testimonials/testimonials-4.jpg"--}}
+    {{--                                         class="img-fluid testimonial-img" alt="">--}}
+    {{--                                </div>--}}
+    {{--                            </div>--}}
+    {{--                        </div>--}}
+    {{--                    </div><!-- End testimonial item -->--}}
 
-{{--                </div>--}}
-{{--                <div class="swiper-pagination"></div>--}}
-{{--            </div>--}}
+    {{--                </div>--}}
+    {{--                <div class="swiper-pagination"></div>--}}
+    {{--            </div>--}}
 
-{{--        </div>--}}
-{{--    </section>--}}
+    {{--        </div>--}}
+    {{--    </section>--}}
 
 
-{{--    <section id="events" class="events">--}}
-{{--        <div class="container-fluid" data-aos="fade-up">--}}
+    {{--    <section id="events" class="events">--}}
+    {{--        <div class="container-fluid" data-aos="fade-up">--}}
 
-{{--            <div class="section-header">--}}
-{{--                <h2>Events</h2>--}}
-{{--                <p>Share <span>Your Moments</span> In Our Restaurant</p>--}}
-{{--            </div>--}}
+    {{--            <div class="section-header">--}}
+    {{--                <h2>Events</h2>--}}
+    {{--                <p>Share <span>Your Moments</span> In Our Restaurant</p>--}}
+    {{--            </div>--}}
 
-{{--            <div class="slides-3 swiper" data-aos="fade-up" data-aos-delay="100">--}}
-{{--                <div class="swiper-wrapper">--}}
+    {{--            <div class="slides-3 swiper" data-aos="fade-up" data-aos-delay="100">--}}
+    {{--                <div class="swiper-wrapper">--}}
 
-{{--                    <div class="swiper-slide event-item d-flex flex-column justify-content-end"--}}
-{{--                         style="background-image: url(assets/img/events-1.jpg)">--}}
-{{--                        <h3>Custom Parties</h3>--}}
-{{--                        <div class="price align-self-start">$99</div>--}}
-{{--                        <p class="description">--}}
-{{--                            Quo corporis voluptas ea ad. Consectetur inventore sapiente ipsum voluptas eos omnis facere.--}}
-{{--                            Enim facilis veritatis id est rem repudiandae nulla expedita quas.--}}
-{{--                        </p>--}}
-{{--                    </div><!-- End Event item -->--}}
+    {{--                    <div class="swiper-slide event-item d-flex flex-column justify-content-end"--}}
+    {{--                         style="background-image: url(assets/img/events-1.jpg)">--}}
+    {{--                        <h3>Custom Parties</h3>--}}
+    {{--                        <div class="price align-self-start">$99</div>--}}
+    {{--                        <p class="description">--}}
+    {{--                            Quo corporis voluptas ea ad. Consectetur inventore sapiente ipsum voluptas eos omnis facere.--}}
+    {{--                            Enim facilis veritatis id est rem repudiandae nulla expedita quas.--}}
+    {{--                        </p>--}}
+    {{--                    </div><!-- End Event item -->--}}
 
-{{--                    <div class="swiper-slide event-item d-flex flex-column justify-content-end"--}}
-{{--                         style="background-image: url(assets/img/events-2.jpg)">--}}
-{{--                        <h3>Private Parties</h3>--}}
-{{--                        <div class="price align-self-start">$289</div>--}}
-{{--                        <p class="description">--}}
-{{--                            In delectus sint qui et enim. Et ab repudiandae inventore quaerat doloribus. Facere nemo--}}
-{{--                            vero est ut dolores ea assumenda et. Delectus saepe accusamus aspernatur.--}}
-{{--                        </p>--}}
-{{--                    </div><!-- End Event item -->--}}
+    {{--                    <div class="swiper-slide event-item d-flex flex-column justify-content-end"--}}
+    {{--                         style="background-image: url(assets/img/events-2.jpg)">--}}
+    {{--                        <h3>Private Parties</h3>--}}
+    {{--                        <div class="price align-self-start">$289</div>--}}
+    {{--                        <p class="description">--}}
+    {{--                            In delectus sint qui et enim. Et ab repudiandae inventore quaerat doloribus. Facere nemo--}}
+    {{--                            vero est ut dolores ea assumenda et. Delectus saepe accusamus aspernatur.--}}
+    {{--                        </p>--}}
+    {{--                    </div><!-- End Event item -->--}}
 
-{{--                    <div class="swiper-slide event-item d-flex flex-column justify-content-end"--}}
-{{--                         style="background-image: url(assets/img/events-3.jpg)">--}}
-{{--                        <h3>Birthday Parties</h3>--}}
-{{--                        <div class="price align-self-start">$499</div>--}}
-{{--                        <p class="description">--}}
-{{--                            Laborum aperiam atque omnis minus omnis est qui assumenda quos. Quis id sit quibusdam. Esse--}}
-{{--                            quisquam ducimus officia ipsum ut quibusdam maxime. Non enim perspiciatis.--}}
-{{--                        </p>--}}
-{{--                    </div><!-- End Event item -->--}}
+    {{--                    <div class="swiper-slide event-item d-flex flex-column justify-content-end"--}}
+    {{--                         style="background-image: url(assets/img/events-3.jpg)">--}}
+    {{--                        <h3>Birthday Parties</h3>--}}
+    {{--                        <div class="price align-self-start">$499</div>--}}
+    {{--                        <p class="description">--}}
+    {{--                            Laborum aperiam atque omnis minus omnis est qui assumenda quos. Quis id sit quibusdam. Esse--}}
+    {{--                            quisquam ducimus officia ipsum ut quibusdam maxime. Non enim perspiciatis.--}}
+    {{--                        </p>--}}
+    {{--                    </div><!-- End Event item -->--}}
 
-{{--                </div>--}}
-{{--                <div class="swiper-pagination"></div>--}}
-{{--            </div>--}}
+    {{--                </div>--}}
+    {{--                <div class="swiper-pagination"></div>--}}
+    {{--            </div>--}}
 
-{{--        </div>--}}
-{{--    </section>--}}
+    {{--        </div>--}}
+    {{--    </section>--}}
 
     <!-- ======= Chefs Section ======= -->
     <section id="partners" class="chefs section-bg">
@@ -592,46 +600,46 @@
     </section><!-- End Chefs Section -->
 
     <!-- ======= Gallery Section ======= -->
-{{--    <section id="gallery" class="gallery section-bg">--}}
-{{--        <div class="container" data-aos="fade-up">--}}
+    {{--    <section id="gallery" class="gallery section-bg">--}}
+    {{--        <div class="container" data-aos="fade-up">--}}
 
-{{--            <div class="section-header">--}}
-{{--                <h2>gallery</h2>--}}
-{{--                <p>Check <span>Our Gallery</span></p>--}}
-{{--            </div>--}}
+    {{--            <div class="section-header">--}}
+    {{--                <h2>gallery</h2>--}}
+    {{--                <p>Check <span>Our Gallery</span></p>--}}
+    {{--            </div>--}}
 
-{{--            <div class="gallery-slider swiper">--}}
-{{--                <div class="swiper-wrapper align-items-center">--}}
-{{--                    <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery"--}}
-{{--                                                 href="assets/img/gallery/gallery-1.jpg"><img--}}
-{{--                                src="assets/img/gallery/gallery-1.jpg" class="img-fluid" alt=""></a></div>--}}
-{{--                    <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery"--}}
-{{--                                                 href="assets/img/gallery/gallery-2.jpg"><img--}}
-{{--                                src="assets/img/gallery/gallery-2.jpg" class="img-fluid" alt=""></a></div>--}}
-{{--                    <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery"--}}
-{{--                                                 href="assets/img/gallery/gallery-3.jpg"><img--}}
-{{--                                src="assets/img/gallery/gallery-3.jpg" class="img-fluid" alt=""></a></div>--}}
-{{--                    <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery"--}}
-{{--                                                 href="assets/img/gallery/gallery-4.jpg"><img--}}
-{{--                                src="assets/img/gallery/gallery-4.jpg" class="img-fluid" alt=""></a></div>--}}
-{{--                    <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery"--}}
-{{--                                                 href="assets/img/gallery/gallery-5.jpg"><img--}}
-{{--                                src="assets/img/gallery/gallery-5.jpg" class="img-fluid" alt=""></a></div>--}}
-{{--                    <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery"--}}
-{{--                                                 href="assets/img/gallery/gallery-6.jpg"><img--}}
-{{--                                src="assets/img/gallery/gallery-6.jpg" class="img-fluid" alt=""></a></div>--}}
-{{--                    <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery"--}}
-{{--                                                 href="assets/img/gallery/gallery-7.jpg"><img--}}
-{{--                                src="assets/img/gallery/gallery-7.jpg" class="img-fluid" alt=""></a></div>--}}
-{{--                    <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery"--}}
-{{--                                                 href="assets/img/gallery/gallery-8.jpg"><img--}}
-{{--                                src="assets/img/gallery/gallery-8.jpg" class="img-fluid" alt=""></a></div>--}}
-{{--                </div>--}}
-{{--                <div class="swiper-pagination"></div>--}}
-{{--            </div>--}}
+    {{--            <div class="gallery-slider swiper">--}}
+    {{--                <div class="swiper-wrapper align-items-center">--}}
+    {{--                    <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery"--}}
+    {{--                                                 href="assets/img/gallery/gallery-1.jpg"><img--}}
+    {{--                                src="assets/img/gallery/gallery-1.jpg" class="img-fluid" alt=""></a></div>--}}
+    {{--                    <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery"--}}
+    {{--                                                 href="assets/img/gallery/gallery-2.jpg"><img--}}
+    {{--                                src="assets/img/gallery/gallery-2.jpg" class="img-fluid" alt=""></a></div>--}}
+    {{--                    <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery"--}}
+    {{--                                                 href="assets/img/gallery/gallery-3.jpg"><img--}}
+    {{--                                src="assets/img/gallery/gallery-3.jpg" class="img-fluid" alt=""></a></div>--}}
+    {{--                    <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery"--}}
+    {{--                                                 href="assets/img/gallery/gallery-4.jpg"><img--}}
+    {{--                                src="assets/img/gallery/gallery-4.jpg" class="img-fluid" alt=""></a></div>--}}
+    {{--                    <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery"--}}
+    {{--                                                 href="assets/img/gallery/gallery-5.jpg"><img--}}
+    {{--                                src="assets/img/gallery/gallery-5.jpg" class="img-fluid" alt=""></a></div>--}}
+    {{--                    <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery"--}}
+    {{--                                                 href="assets/img/gallery/gallery-6.jpg"><img--}}
+    {{--                                src="assets/img/gallery/gallery-6.jpg" class="img-fluid" alt=""></a></div>--}}
+    {{--                    <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery"--}}
+    {{--                                                 href="assets/img/gallery/gallery-7.jpg"><img--}}
+    {{--                                src="assets/img/gallery/gallery-7.jpg" class="img-fluid" alt=""></a></div>--}}
+    {{--                    <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery"--}}
+    {{--                                                 href="assets/img/gallery/gallery-8.jpg"><img--}}
+    {{--                                src="assets/img/gallery/gallery-8.jpg" class="img-fluid" alt=""></a></div>--}}
+    {{--                </div>--}}
+    {{--                <div class="swiper-pagination"></div>--}}
+    {{--            </div>--}}
 
-{{--        </div>--}}
-{{--    </section>--}}
+    {{--        </div>--}}
+    {{--    </section>--}}
 
 
     <section id="contact" class="contact">
@@ -650,8 +658,9 @@
                         <div>
                             <h3>Our Address</h3>
                             <p><a target="_blank"
-                                  href="https://2gis.kz/almaty/search/%D0%9C%D0%B5%D0%B6%D0%B4%D1%83%D0%BD%D0%B0%D1%80%D0%BE%D0%B4%D0%BD%D1%8B%D0%B9%20%D1%83%D0%BD%D0%B8%D0%B2%D0%B5%D1%80%D1%81%D0%B8%D1%82%D0%B5%D1%82%20%D0%B8%D0%BD%D1%84%D0%BE%D1%80%D0%BC%D0%B0%D1%86%D0%B8%D0%BE%D0%BD%D0%BD%D1%8B%D1%85%20%D1%82%D0%B5%D1%85%D0%BD%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D0%B9%2C%20%D1%83%D0%BD%D0%B8%D0%B2%D0%B5%D1%80%D1%81%D0%B8%D1%82%D0%B5%D1%82%D1%8B/firm/9429940000793107/76.909876%2C43.235296"> Kazakhstan, Almaty, Manas Street, 34А</a>
-                               </p>
+                                  href="https://2gis.kz/almaty/search/%D0%9C%D0%B5%D0%B6%D0%B4%D1%83%D0%BD%D0%B0%D1%80%D0%BE%D0%B4%D0%BD%D1%8B%D0%B9%20%D1%83%D0%BD%D0%B8%D0%B2%D0%B5%D1%80%D1%81%D0%B8%D1%82%D0%B5%D1%82%20%D0%B8%D0%BD%D1%84%D0%BE%D1%80%D0%BC%D0%B0%D1%86%D0%B8%D0%BE%D0%BD%D0%BD%D1%8B%D1%85%20%D1%82%D0%B5%D1%85%D0%BD%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D0%B9%2C%20%D1%83%D0%BD%D0%B8%D0%B2%D0%B5%D1%80%D1%81%D0%B8%D1%82%D0%B5%D1%82%D1%8B/firm/9429940000793107/76.909876%2C43.235296">
+                                    Kazakhstan, Almaty, Manas Street, 34А</a>
+                            </p>
                         </div>
                     </div>
                 </div><!-- End Info Item -->
@@ -661,7 +670,7 @@
                         <i class="icon bi bi-envelope flex-shrink-0"></i>
                         <div>
                             <h3>Email Us</h3>
-                            <p><a target="_blank" href="mailto:info@iitu.edu.kz">info@iitu.edu.kz</a> </p>
+                            <p><a target="_blank" href="mailto:info@iitu.edu.kz">info@iitu.edu.kz</a></p>
                         </div>
                     </div>
                 </div><!-- End Info Item -->
