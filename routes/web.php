@@ -46,3 +46,11 @@ Route::get('/admin/feedbacks', [App\Http\Controllers\AdminController::class, 'fe
 
 Route::get('add-to-cart/{id}', [App\Http\Controllers\HomeController::class, 'addToCart'])->name('add.to.cart');
 Route::get('add-to-favorites/{id}', [App\Http\Controllers\HomeController::class , 'addToFavorites'])->name('add.to.favorites');
+
+
+
+Route::get('/offline', function () {
+
+    return view('modules/laravelpwa/offline');
+
+});
