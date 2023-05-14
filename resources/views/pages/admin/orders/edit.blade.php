@@ -47,7 +47,7 @@
                     <select name="status" class="order_input" id="status">
                         <option {{$order->status === "Not paid" ? "selected" : " "}} value="Not paid">Not paid</option>
                         <option {{$order->status === "Paid" ? "selected" : " "}} value="Paid">Paid</option>
-                        <option {{$order->status === "Cooking" ? "selected" : " "}} value="Cooking">Cooking</option>
+                        <option {{$order->status  === "Cooking" ? "selected" : " "}} value="Cooking">Cooking</option>
                         <option {{$order->status === "Ready for delivery" ? "selected" : " "}} value="Ready for delivery">Ready for delivery</option>
                         <option {{$order->status === "Issued" ? "selected" : " "}} value="Issued">Issued</option>
                     </select>

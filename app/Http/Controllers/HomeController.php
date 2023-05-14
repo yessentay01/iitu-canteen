@@ -58,7 +58,9 @@ class HomeController extends Controller
     }
 
     public function addToFavorites($id){
-        $items = Favorites::where('item_id', '=', $id)->get();
+        $items = Favorites::where('item_id', '=', $id)
+            ->where('user_id', '=', auth()->user()->id)
+            ->get();
         if(count($items) > 0){
             foreach ($items as $item){
                 DB::table('favorites')->delete($item->id);

@@ -35,6 +35,13 @@ Route::get('/admin/orders/edit/{id}', [App\Http\Controllers\AdminController::cla
 Route::post('/admin/orders/edit', [App\Http\Controllers\AdminController::class, 'updateOrder'])->name('admin.orders.update');
 
 Route::get('/admin/menu', [App\Http\Controllers\AdminController::class, 'menu'])->name('admin.menu');
+Route::get('/admin/menu/add', [App\Http\Controllers\AdminController::class, 'menuAdd'])->name('admin.menu.add');
+Route::post('/admin/menu/add', [App\Http\Controllers\AdminController::class, 'menuStore'])->name('admin.menu.store');
+Route::get('/admin/menu/edit/{id}', [App\Http\Controllers\AdminController::class, 'menuEdit'])->name('admin.menu.edit');
+Route::post('/admin/menu/edit', [App\Http\Controllers\AdminController::class, 'menuUpdate'])->name('admin.menu.update');
+Route::get('/admin/menu/delete/{id}', [App\Http\Controllers\AdminController::class, 'menuDelete'])->name('admin.menu.delete');
+
+
 Route::get('/admin/feedbacks', [App\Http\Controllers\AdminController::class, 'feedback'])->name('admin.feedback');
 
 Route::get('add-to-cart/{id}', [App\Http\Controllers\HomeController::class, 'addToCart'])->name('add.to.cart');

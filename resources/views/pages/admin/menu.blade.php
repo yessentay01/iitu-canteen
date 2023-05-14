@@ -1,8 +1,32 @@
 @extends('layouts.admin')
 
 @section('admin_content')
+    <style>
+        .profile_logout {
+            background-color: var(--color-primary);
+            color: #fff;
+            box-sizing: border-box;
+            display: block;
+            text-align: center;
+            padding: 10px 20px;
+            border-radius: 10px;
+        }
+
+        .profile_logout:hover {
+            color: #fff;
+            opacity: 0.85;
+        }
+    </style>
     <div class="admin_content">
-        <h2>Menu</h2>
+        @if(session('success'))
+            <div class="alert alert-success" id="successMessage">
+                {{ session('success') }}
+            </div>
+        @endif
+        <div class="flex justify-between align-items-center mb-4">
+            <h2>Menu</h2>
+            <a class="profile_logout" href="{{route('admin.menu.add')}}">Add a new dish</a>
+        </div>
         <table id="table" class="stripe hover" style="width:100%; padding-top: 1em;  padding-bottom: 1em;">
             <thead>
             <tr>
@@ -12,6 +36,7 @@
                 <th data-priority="4">Price</th>
                 <th data-priority="5">Category name</th>
                 <th data-priority="6">Is publish</th>
+                <th data-priority="7">Actions</th>
             </tr>
             </thead>
             <tbody>
@@ -23,6 +48,10 @@
                     <td data-priority="4">{{$item->price}}</td>
                     <td data-priority="5">{{$item->category_name}}</td>
                     <td data-priority="6">{{$item->is_publish}}</td>
+                    <td data-priority="7" class="flex gap-2" style="">
+                        <a href="{{route('admin.menu.edit', $item->id)}}" class="btn btn-primary small" style="display: flex; height: 20px !important; align-items: center; vertical-align: center">Edit</a>
+                        <a href="{{route('admin.menu.delete', $item->id)}}" class="btn btn-danger small" style="display: flex; height: 20px !important; align-items: center; vertical-align: center">Delete</a>
+                    </td>
                 </tr>
             @endforeach
 

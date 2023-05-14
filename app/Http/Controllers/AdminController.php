@@ -33,6 +33,74 @@ class AdminController extends Controller
         $items = Item::all();
         return view('pages.admin.menu', compact('items'));
     }
+
+    public function menuAdd(){
+        if (!auth()->user()->is_admin) {
+            return redirect()->route('home');
+        }
+        $categories = Category::all();
+        return view('pages.admin.menu.add', compact('categories'));
+    }
+
+    public function menuStore(Request $request){
+        $request->validate([
+            'name' => 'required',
+            'category_name' => 'required',
+            'price' => 'required',
+            'is_publish' => 'required',
+            'images' => 'required',
+        ]);
+        if ($request->images) {
+            $photo_name = time() . "." . $request->images->getClientOriginalExtension();
+            $request->images->storeAs('media/menu/', $photo_name, 'public');
+        }
+        Item::create([
+            'name'=> $request->name,
+            'images'=> $photo_name,
+            'ingredients'=> $request->ingredients,
+            'price'=> (int)$request->price,
+            'category_name'=> (int)$request->category_name,
+            'is_publish'=> (int)$request->is_publish,
+        ]);
+        return redirect()->route('admin.menu')->with('success', 'Product added successfully!');
+    }
+
+    public function menuEdit($id){
+        if (!auth()->user()->is_admin) {
+            return redirect()->route('home');
+        }
+        $item = Item::findorfail((int)$id);
+        $categories = Category::all();
+        return view('pages.admin.menu.edit', compact('categories', 'item'));
+    }
+    public function menuUpdate(Request $request)
+    {
+        $request->validate([
+            'name' => 'required',
+            'category_name' => 'required',
+            'price' => 'required',
+            'is_publish' => 'required',
+        ]);
+        $item = Item::findorfail((int)$request->id);
+
+        $item->name = $request->name;
+        $item->category_name = $request->category_name;
+        $item->price = $request->price;
+        $item->is_publish = $request->is_publish;
+        $item->save();
+        return redirect()->route('admin.menu')->with('success', 'Product updated successfully!');
+
+    }
+
+    public function menuDelete($id){
+        if (!auth()->user()->is_admin) {
+            return redirect()->route('home');
+        }
+        $item = Item::findorfail((int)$id);
+        $item->delete();
+        return redirect()->route('admin.menu')->with('success', 'Product deleted successfully!');
+    }
+
     public function feedback()
     {
         if (!auth()->user()->is_admin) {

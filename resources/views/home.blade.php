@@ -18,8 +18,8 @@
                         @foreach($items as $item)
                             @if($category->id == $item->category_name)
                             <div class="category_item">
-                                <img class="category_item_images" src="{{$item->images}}"
-                                     alt="">
+                                <img class="category_item_images"       src="{{url('storage/media/menu/' . $item->images)}}"
+                                     alt="{{$item->images}}">
                                 <h3 class="category_item_title">{{$item->name}}</h3>
                                 <p class="category_item_description">{{$item->ingredients}}</p>
                                 <p class="category_item_price">₸{{$item->price}}</p>

@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('images');
             $table->string('name');
-            $table->string('ingredients');
+            $table->string('ingredients')->nullable();
             $table->string('price');
             $table->string('category_name');
             $table->boolean('is_publish');
