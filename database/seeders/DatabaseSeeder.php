@@ -35,7 +35,7 @@ class DatabaseSeeder extends Seeder
                 'name' => 'Drinks',
             ],
         );
-
+    /*
         DB::table('items')->insert(
             [
                 'images' => 'http://127.0.0.1:8000/assets/img/menu/drinks/1.png',
@@ -205,6 +205,7 @@ class DatabaseSeeder extends Seeder
         );
 
         //
+
         DB::table('items')->insert(
             [
                 'images' => 'http://127.0.0.1:8000/assets/img/menu/soups/1.png',
@@ -246,6 +247,6 @@ class DatabaseSeeder extends Seeder
             ]
         );
 
-
+    */
     }
 }
