@@ -9,6 +9,7 @@
                 padding: 140px 0;
             }
         </style>
+        @laravelPWA
     </head>
     <div class="container">
 

@@ -30,6 +30,7 @@
     <style>
 
     </style>
+    @laravelPWA
 </head>
 <body>
     <div id="app" class="bg-gray-50">
