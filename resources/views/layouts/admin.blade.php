@@ -8,6 +8,9 @@
             .admin_content{
                 padding: 140px 0;
             }
+            body {
+                touch-action: pan-x pan-y;
+            }
         </style>
         @laravelPWA
     </head>
