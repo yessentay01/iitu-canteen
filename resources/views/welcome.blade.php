@@ -3,7 +3,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
 
     <title>IITU Canteen</title>
     <meta content="" name="description">
@@ -19,6 +20,11 @@
 
     <link href="{{asset('assets/css/main.css')}}" rel="stylesheet">
     @laravelPWA
+    <style>
+        body {
+            touch-action: pan-x pan-y;
+        }
+    </style>
 </head>
 
 <body>
