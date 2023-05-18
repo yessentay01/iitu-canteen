@@ -86,6 +86,7 @@ class AdminController extends Controller
         $item->name = $request->name;
         $item->category_name = $request->category_name;
         $item->price = $request->price;
+        $item->ingredients = $request->ingredients;
         $item->is_publish = $request->is_publish;
         $item->save();
         return redirect()->route('admin.menu')->with('success', 'Product updated successfully!');
