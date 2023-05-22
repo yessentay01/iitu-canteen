@@ -87,6 +87,9 @@
                         {{$order->items}}</p>
                         <p><b>Total Price:</b> {{$order->price}}₸</p>
                         <p><b>Status:</b> {{$order->status}}</p>
+                        @if(!($order->status === 'Issued') && !($order->status == 'Cancelled'))
+                            <a href="{{route('cancel', $order->id)}}">Cancel order</a>
+                        @endif
                         @if($order->status === 'Issued')
                             <a target="_blank" href="{{route('receipt', $order->order_id)}}">Download receipt</a>
                             <br>

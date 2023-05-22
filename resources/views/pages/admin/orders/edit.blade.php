@@ -50,6 +50,7 @@
                         <option {{$order->status  === "Cooking" ? "selected" : " "}} value="Cooking">Cooking</option>
                         <option {{$order->status === "Ready for delivery" ? "selected" : " "}} value="Ready for delivery">Ready for delivery</option>
                         <option {{$order->status === "Issued" ? "selected" : " "}} value="Issued">Issued</option>
+                        <option {{$order->status === "Cancelled" ? "selected" : " "}} value="Cancelled">Cancelled</option>
                     </select>
                     <button type="submit" class="profile_logout">Change Status</button>
                     <a class="cancel_btn" href="{{URL::previous()}}">Cancel</a>

@@ -26,8 +26,10 @@ Route::get('/profile', [App\Http\Controllers\ProfileController::class, 'index'])
 Route::get('/profile/feedback/{id}', [App\Http\Controllers\ProfileController::class, 'feedback'])->name('feedback');
 Route::post('/profile/feedback', [App\Http\Controllers\ProfileController::class, 'feedbackStore'])->name('feedback.store');
 Route::get('/profile/download/{id}', [App\Http\Controllers\ProfileController::class, 'downloadReceipt'])->name('receipt');
+Route::get('/profile/cancel/{id}', [App\Http\Controllers\ProfileController::class, 'cancelOrder'])->name('cancel');
 
 Route::get('/admin/users', [App\Http\Controllers\AdminController::class, 'users'])->name('admin.users');
+
 Route::get('/admin/categories', [App\Http\Controllers\AdminController::class, 'categories'])->name('admin.categories');
 
 Route::get('/admin/orders', [App\Http\Controllers\AdminController::class, 'orders'])->name('admin.orders');

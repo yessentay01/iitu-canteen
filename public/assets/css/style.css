@@ -2,7 +2,8 @@
     padding: 100px 15px 100px 15px;
     margin: auto;
 }
-.marginn{
+
+.marginn {
     margin: auto;
 }
 
@@ -12,9 +13,12 @@
     color: var(--color-primary);
     margin-bottom: 25px;
 }
-.category{
+
+
+.category {
     margin-bottom: 60px;
 }
+
 .category_items {
     overflow: auto;
     display: flex;
@@ -36,7 +40,7 @@
     flex-basis: 200px;
     flex-grow: 0;
     flex-shrink: 0;
-    position:relative;
+    position: relative;
 
 }
 
@@ -69,7 +73,8 @@
     font-weight: 700;
     color: var(--color-primary);
 }
-.category_item_buttons{
+
+.category_item_buttons {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -81,7 +86,8 @@
     margin: auto;
     z-index: 1;
 }
-.category_item_button{
+
+.category_item_button {
     background-color: var(--color-primary);
     color: #fff;
     padding: 6px;
@@ -89,42 +95,62 @@
     width: 80%;
     white-space: nowrap;
 }
-.category_item_button:hover{
+
+.category_item_button:hover {
     opacity: 0.85;
     color: #fff;
 }
-.category_item_fav-button svg{
-    width:  26px;
+
+.category_item_fav-button svg {
+    width: 26px;
 }
+
+@media (max-width: 480px) {
+    .category_title {
+        font-size: 28px;
+    }
+    .category_item_title{
+        font-size: 18px;
+    }
+    .category_item_price {
+        font-size: 20px;
+    }
+}
+
+
 .hidden {
     opacity: 0;
-    -webkit-transition:  height 0.5s ease;
+    -webkit-transition: height 0.5s ease;
     -moz-transition: height 0.5s ease;
     -ms-transition: height 0.5s ease;
     -o-transition: height 0.5s ease;
     transition: height 0.5s ease;
-    transition-delay:0.2s;}
+    transition-delay: 0.2s;
+}
 
 .visible {
     opacity: 1;
-    -webkit-transition:  height 0.5s ease;
+    -webkit-transition: height 0.5s ease;
     -moz-transition: height 0.5s ease;
     -ms-transition: height 0.5s ease;
     -o-transition: height 0.5s ease;
     transition: height 0.5s ease;
-    transition-delay:0.2s;}
+    transition-delay: 0.2s;
+}
 
-.active{
+.active {
     color: var(--color-primary);
     border-top: none;
 }
-.cartBtn{
+
+.cartBtn {
     position: relative;
 }
-.cart_count{
+
+.cart_count {
     position: absolute;
     top: 0;
-    background-color: var(--color-primary) ;
+    background-color: var(--color-primary);
     color: #fff;
     width: 25px;
     height: 25px;

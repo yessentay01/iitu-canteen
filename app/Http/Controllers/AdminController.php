@@ -25,6 +25,7 @@ class AdminController extends Controller
         return view('pages.admin.users', compact('users'));
     }
 
+
     public function menu()
     {
         if (!auth()->user()->is_admin) {

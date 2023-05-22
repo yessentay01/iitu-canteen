@@ -53,6 +53,14 @@ class ProfileController extends Controller
     public function downloadReceipt($id){
         $order = Order::where( 'orders.order_id', '=', $id)->get();
         $pdf = PDF::loadView('pages.receipt', compact('order'),);
-        return $pdf->stream('receipt.pdf');
+        return $pdf->download('receipt.pdf');
     }
+
+    public function cancelOrder($id){
+        $order = Order::find($id);
+        $order->status = 'Cancelled';
+        $order->save();
+        return redirect()->route('profile')->with('success', 'Order cancelled successfully');
+    }
+
 }

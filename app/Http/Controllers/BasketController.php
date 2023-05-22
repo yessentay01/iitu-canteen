@@ -35,7 +35,7 @@ class BasketController extends Controller
 
         $total_price = $request->price;
         if ($request->bonus == "on"){
-            $price = (int)$request->price - (int)auth()->user()->bonus;
+            $price = (double)$request->price - (double)auth()->user()->bonus;
             $total_price = (string)$price;
             $user->bonus = "0";
             $user->save();
@@ -53,8 +53,8 @@ class BasketController extends Controller
             'status' => 'Cooking',
             'comment' => $request->comment
         ]);
-        $bouns = (int)$request->price * 0.01;
-        $user->bonus = (string)$bouns;
+        $bouns = (double)$request->price * 0.01;
+        $user->bonus = (string)($bouns + (double)$user->bonus);
         $user->save();
         Session::forget('cart');
         return redirect()->route('home')->with('success', 'Order created successfully');
