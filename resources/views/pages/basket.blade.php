@@ -68,7 +68,9 @@
             table {
                 border: 0;
             }
-
+            .basket {
+                padding: 50px 0;
+            }
             table caption {
                 font-size: 1.3em;
             }
@@ -177,15 +179,21 @@
                         <input type="time" name="time" class="order_input" id="time" required>
                     </div>
                 </div>
-                <div id="step3" class="step_content">
-                    <h3>Payment</h3>
-                    <label for="date">Card Number</label>
-                    <input type="text" name="card_number" class="card_number order_input" required>
-                    <label for="date">Expiration date</label>
-                    <input type="month" name="expiration_date" class="order_input" min="2023-03" value="2023-03" required>
-                    <label for="date">CVV</label>
-                    <input type="text" name="cvv" class="cvv order_input" required>
-                </div>
+{{--                <div id="step3" class="step_content">--}}
+{{--                    <h3>Payment</h3>--}}
+{{--                    <label for="date">Card Number</label>--}}
+{{--                    <input type="text" name="card_number" class="card_number order_input" required>--}}
+{{--                    <label for="date">Expiration date</label>--}}
+{{--                    <input type="month" name="expiration_date" class="order_input" min="2023-03" value="2023-03" required>--}}
+{{--                    <label for="date">CVV</label>--}}
+{{--                    <input type="text" name="cvv" class="cvv order_input" required>--}}
+{{--                </div>--}}
+
+                <input type="hidden" name="card_number" value="-">
+                <input type="hidden" name="expiration_date" value="-">
+                <input type="hidden" name="cvv" value="-">
+
+
                 <div id="step3" class="step_content">
                     <label class="form-control">
                         <input type="checkbox" name="bonus" />
@@ -195,7 +203,7 @@
                     <label for="date">Comment</label>
                     <textarea name="comment" class="order_input order_textarea" id="" cols="30" rows="10"></textarea>
                 </div>
-                <div class="step_content">
+                <div class="px-3 pb-6">
                     <textarea type="text" name="items"  class="d-none">{{implode(" \n ",$products)}}</textarea>
                     <input type="text" name="price" value="{{$total}}" readonly class="d-none">
                     <button type="submit" class="profile_logout">Order</button>
@@ -205,8 +213,9 @@
             </form>
 
         @else
-            <div class="container">
+            <div class="mx-3">
                 <h4>You haven't added anything to your cart yet</h4>
+                <a class="profile_logout mt-6" href="{{route('home')}}">Choose food</a>
             </div>
 
         @endif

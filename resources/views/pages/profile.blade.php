@@ -3,7 +3,7 @@
 @section('content')
     <style>
         .profile{
-            padding: 100px 10px 80px 10px;
+            padding: 100px 16px 80px 16px;
             max-width: 800px;
             margin: auto;
             overflow-y: scroll;
@@ -59,7 +59,7 @@
                 {{ session('success') }}
             </div>
         @endif
-        <h1>Hello, {{$user->name}}!</h1>
+        <h1 class="mb-2">Hello, {{$user->name}}!</h1>
         <div class="profile_item">
             <h3 class="profile_item_title">Personal data</h3>
             <div class="profile_info">
@@ -94,6 +94,9 @@
                             <a target="_blank" href="{{route('receipt', $order->order_id)}}">Download receipt</a>
                             <br>
                             <a href="{{route('feedback', $order->id)}}" class="profile_logout feedback_btn">Feedback</a>
+                        @endif
+                        @if($order->status === 'Not paid')
+                            <a href="https://wa.me/77002161306?text=Я%20хотел%20оплатить%20заказ%20под%20номером%20{{$order->order_id}}" target="_blank" class="profile_logout feedback_btn">Paid</a>
                         @endif
                     </div>
                 @endforeach
