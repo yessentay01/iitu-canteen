@@ -12,7 +12,6 @@
                 touch-action: pan-x pan-y;
             }
         </style>
-        @laravelPWA
     </head>
     <div class="container">
 

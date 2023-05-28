@@ -28,8 +28,15 @@ class HomeController extends Controller
     public function index()
     {
         $categories = Category::all();
-        $items = Item::all();
         $favorites = Favorites::all();
+
+        if (request('search')) {
+            $items = Item::where('items.name', 'like', '%' . request('search') . '%')->get();
+        } else {
+            $items = Item::all();
+        }
+
+
         return view('home', compact('categories', 'items', 'favorites'));
     }
 

@@ -20,7 +20,9 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->boolean('is_admin')->nullable();
-            $table->boolean('bonus')->default(0);
+            $table->string('status')->nullable();
+            $table->double('bonus')->default(0);
+            $table->string('university')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
@@ -36,3 +38,6 @@ return new class extends Migration
         Schema::dropIfExists('users');
     }
 };
+
+
+

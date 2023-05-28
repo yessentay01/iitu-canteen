@@ -38,7 +38,7 @@
     <div id="app" class="bg-gray-50">
 
         <header id="header" class="header fixed-top d-flex align-items-center">
-            <div class="container d-flex align-items-center justify-content-between">
+            <div class=" px-3 w-full d-flex align-items-center justify-content-between">
                 <a href="{{route('welcome')}}" class="logo d-flex align-items-center me-auto me-lg-0">
                     <h1 class="whitespace-nowrap">IITU Canteen<span>.</span></h1>
                 </a>
@@ -61,14 +61,30 @@
                 @endif
             </div>
         </header>
+
         <main>
+            @if(Route::currentRouteNamed('home'))
+                <div class="search_form">
+                    <form>
+                        <input
+                            type="search"
+                            class="form-control my-4"
+                            placeholder="Find a dish.."
+                            name="search"
+                            value="{{ request('search') }}"
+                            onchange=""
+                        >
+                        <input type="submit" hidden/>
+                    </form>
+                </div>
+            @endif
             @yield('content')
 
             @if(isset(auth()->user()->id))
             <div class="b-nav" style="z-index: 99">
                 <div class="btm-nav" style="z-index: 99">
                     <button onclick="window.location='{{ url("home") }}'" class="{{Route::currentRouteNamed('home') ? 'active' : ''}}">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
                         </svg>
                         <span class="btm-nav-label">Menu</span>

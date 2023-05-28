@@ -2,7 +2,13 @@
     padding: 100px 15px 100px 15px;
     margin: auto;
 }
+.search_form{
+    display: none;
+    margin-top: 80px;
+    padding: 0 10px;
+    background-color: #fff;
 
+}
 .marginn {
     margin: auto;
 }
@@ -115,6 +121,16 @@
     .category_item_price {
         font-size: 20px;
     }
+    .btm-nav-label{
+        font-size: 12px;
+    }
+    .search_form{
+        display: block;
+    }
+    .home {
+        padding: 0px 15px 100px 15px;
+        margin: auto;
+    }
 }
 
 
@@ -140,7 +156,7 @@
 
 .active {
     color: var(--color-primary);
-    border-top: none;
+    border-top-color: #fff;;
 }
 
 .cartBtn {
@@ -157,3 +173,4 @@
     border-radius: 50%;
     right: 50%;
 }
+
