@@ -69,7 +69,7 @@
                 border: 0;
             }
             .basket {
-                padding: 50px 0;
+                padding: 85px 0;
             }
             table caption {
                 font-size: 1.3em;
