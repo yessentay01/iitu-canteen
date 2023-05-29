@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 
 
-    <title>IITU Canteen</title>
+    <title>Canteen</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -36,7 +36,7 @@
     <div class="container d-flex align-items-center justify-content-between">
 
         <a href="index.html" class="logo d-flex align-items-center me-auto me-lg-0">
-            <h1>IITU Canteen<span>.</span></h1>
+            <h1>Canteen<span>.</span></h1>
         </a>
 
         <nav id="navbar" class="navbar">
@@ -226,7 +226,7 @@
 
             <div class="section-header">
                 <h2>Our Menu</h2>
-                <p>Check Our <span>IITU Canteen Menu</span></p>
+                <p>Check Our <span>Canteen Menu</span></p>
             </div>
 
             <ul class="nav nav-tabs d-flex justify-content-center" data-aos="fade-up" data-aos-delay="200">

@@ -40,7 +40,7 @@
         <header id="header" class="header fixed-top d-flex align-items-center">
             <div class=" px-3 w-full d-flex align-items-center justify-content-between">
                 <a href="{{route('welcome')}}" class="logo d-flex align-items-center me-auto me-lg-0">
-                    <h1 class="whitespace-nowrap">IITU Canteen<span>.</span></h1>
+                    <h1 class="whitespace-nowrap">Canteen<span>.</span></h1>
                 </a>
                 @if(isset(auth()->user()->id))
                     @if(auth()->user()->is_admin)

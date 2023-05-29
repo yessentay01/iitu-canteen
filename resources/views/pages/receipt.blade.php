@@ -21,7 +21,7 @@
 </head>
 <body>
     <header>
-        <h1> IITU Canteen</h1>
+        <h1>Canteen</h1>
     </header>
     <hr>
     <div>
