@@ -44,6 +44,10 @@
             <form action="{{route('admin.menu.store')}}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div>
+                    <label for="university">University</label>
+                    <select name="university_id"  id="university" class="order_input" required >
+                        <option value="{{auth()->user()->university->id}}" selected disabled>{{auth()->user()->university->name}}</option>
+                    </select>
                     <label for="name">Name</label>
                     <input type="text" name="name" class="order_input" id="name" value="{{old('name')}}" required>
                     @error('name')
@@ -55,7 +59,9 @@
                     <label for="category_name">Category</label>
                     <select name="category_name" class="order_input" id="category_name" required>
                         @foreach($categories as $category)
-                            <option value="{{$category->id}}">{{$category->name}}</option>
+                            @if($category->university->id == auth()->user()->university->id)
+                                <option value="{{$category->id}}">{{$category->name}}</option>
+                            @endif
                         @endforeach
                     </select>
                     @error('category_name')

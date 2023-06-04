@@ -53,18 +53,6 @@
                     </span>
                     @enderror
 
-                    <label for="category_name">Category</label>
-                    <select name="category_name" class="order_input" id="category_name" required>
-                        @foreach($categories as $category)
-                            <option value="{{$category->id}}" {{$item->category_name == $category->id ? 'selected' : ''}}>{{$category->name}}</option>
-                        @endforeach
-                    </select>
-                    @error('category_name')
-                    <span class="invalid-feedback" role="alert">
-                      <strong>{{ $message }}</strong>
-                    </span>
-                    @enderror
-
                     <label for="ingredients">Ingredients</label>
                     <input type="text" name="ingredients" class="order_input" id="ingredients" value="{{$item->ingredients}}">
                     @error('ingredients')

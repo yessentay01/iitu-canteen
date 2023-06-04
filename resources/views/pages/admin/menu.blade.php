@@ -46,7 +46,7 @@
                     <td data-priority="2">{{$item->name}}</td>
                     <td data-priority="3">{{$item->ingredients}}</td>
                     <td data-priority="4">{{$item->price}}</td>
-                    <td data-priority="5">{{$item->category_name}}</td>
+                    <td data-priority="5">{{$item->category->name}}</td>
                     <td data-priority="6">{{$item->is_publish}}</td>
                     <td data-priority="7" class="flex gap-2" style="">
                         <a href="{{route('admin.menu.edit', $item->id)}}" class="btn btn-primary small" style="display: flex; height: 20px !important; align-items: center; vertical-align: center">Edit</a>

@@ -71,6 +71,14 @@
                 <p class="text-gray-400">{{$user->email}}</p>
             </div>
             <div class="profile_info">
+                <p>University</p>
+                <p class="text-gray-400">{{$user->university->name}}</p>
+            </div>
+            <div class="profile_info">
+                <p>Role</p>
+                <p class="text-gray-400">{{$user->role->name}}</p>
+            </div>
+            <div class="profile_info">
                 <p>Bonuses</p>
                 <p class="text-gray-400">{{$user->bonus}}₸</p>
             </div>

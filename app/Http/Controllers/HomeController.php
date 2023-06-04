@@ -29,15 +29,24 @@ class HomeController extends Controller
     {
         $categories = Category::all();
         $favorites = Favorites::all();
+        $role = auth()->user()->role->id;
 
-        if (request('search')) {
-            $items = Item::where('items.name', 'like', '%' . request('search') . '%')->get();
-        } else {
-            $items = Item::all();
+        if ($role == 1){
+            return view('pages.home.user');
         }
+        if ($role == 2 || $role == 3){
+            if (request('search')) {
+                $items = Item::where('items.name', 'like', '%' . request('search') . '%')->get();
+            } else {
+                $items = Item::all();
+            }
+            return view('pages.home.student', compact('categories', 'items', 'favorites'));
+        }
+        if ($role == 4 || $role == 6){
+            $items = Item::all();
+            return view('pages.admin.menu', compact('items'));
 
-
-        return view('home', compact('categories', 'items', 'favorites'));
+        }
     }
 
     public function addToCart($id)

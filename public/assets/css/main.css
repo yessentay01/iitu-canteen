@@ -4,7 +4,6 @@
   --font-secondary: "Inter", sans-serif;
 }
 
-/* Colors */
 :root {
   --color-default: #212529;
   /*--color-primary: #ce1212;*/
@@ -17,9 +16,6 @@
   scroll-behavior: smooth;
 }
 
-/*--------------------------------------------------------------
-# General
---------------------------------------------------------------*/
 body {
   font-family: var(--font-default);
   color: var(--color-default);
@@ -95,9 +91,6 @@ section {
   color: var(--color-primary);
 }
 
-/*--------------------------------------------------------------
-# Breadcrumbs
---------------------------------------------------------------*/
 .breadcrumbs {
   padding: 15px 0;
   background: rgba(55, 55, 63, 0.05);
@@ -154,9 +147,6 @@ section {
   }
 }
 
-/*--------------------------------------------------------------
-# Scroll top button
---------------------------------------------------------------*/
 .scroll-top {
   position: fixed;
   visibility: hidden;
@@ -187,9 +177,6 @@ section {
   opacity: 1;
 }
 
-/*--------------------------------------------------------------
-# Preloader
---------------------------------------------------------------*/
 #preloader {
   position: fixed;
   inset: 0;

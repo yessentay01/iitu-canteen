@@ -28,7 +28,7 @@ class FavoritesController extends Controller
         $items = DB::table('items')
             ->join('favorites', 'items.id', '=', 'favorites.item_id')
             ->where('favorites.user_id' , '=', auth()->user()->id)
-            ->select('items.id', 'items.name', 'items.price', 'items.images', 'items.ingredients','items.category_name','items.is_publish')
+            ->select('items.id', 'items.name', 'items.price', 'items.images', 'items.ingredients','items.is_publish')
             ->get();
         return view('pages.favorites', compact('items'));
     }

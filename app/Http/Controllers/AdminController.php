@@ -36,11 +36,13 @@ class AdminController extends Controller
     }
 
     public function menuAdd(){
-        if (!auth()->user()->is_admin) {
+        if ( auth()->user()->role->id == 3 || auth()->user()->role->id == 4) {
+            $categories = Category::all();
+            return view('pages.admin.menu.add', compact('categories'));
+        }else {
             return redirect()->route('home');
         }
-        $categories = Category::all();
-        return view('pages.admin.menu.add', compact('categories'));
+
     }
 
     public function menuStore(Request $request){
@@ -60,32 +62,33 @@ class AdminController extends Controller
             'images'=> $photo_name,
             'ingredients'=> $request->ingredients,
             'price'=> (int)$request->price,
-            'category_name'=> (int)$request->category_name,
+            'category_id'=> (int)$request->category_name,
             'is_publish'=> (int)$request->is_publish,
+            'university_id' => auth()->user()->university->id
         ]);
         return redirect()->route('admin.menu')->with('success', 'Product added successfully!');
     }
 
     public function menuEdit($id){
-        if (!auth()->user()->is_admin) {
+        if ( auth()->user()->role->id == 3 || auth()->user()->role->id == 4) {
+            $item = Item::findorfail((int)$id);
+            return view('pages.admin.menu.edit', compact('item'));
+        }else{
             return redirect()->route('home');
         }
-        $item = Item::findorfail((int)$id);
-        $categories = Category::all();
-        return view('pages.admin.menu.edit', compact('categories', 'item'));
+
+
     }
     public function menuUpdate(Request $request)
     {
         $request->validate([
             'name' => 'required',
-            'category_name' => 'required',
             'price' => 'required',
             'is_publish' => 'required',
         ]);
         $item = Item::findorfail((int)$request->id);
 
         $item->name = $request->name;
-        $item->category_name = $request->category_name;
         $item->price = $request->price;
         $item->ingredients = $request->ingredients;
         $item->is_publish = $request->is_publish;
@@ -95,12 +98,13 @@ class AdminController extends Controller
     }
 
     public function menuDelete($id){
-        if (!auth()->user()->is_admin) {
+        if (auth()->user()->role->id == 3 || auth()->user()->role->id == 4) {
+            $item = Item::findorfail((int)$id);
+            $item->delete();
+            return redirect()->route('admin.menu')->with('success', 'Product deleted successfully!');
+        }else {
             return redirect()->route('home');
         }
-        $item = Item::findorfail((int)$id);
-        $item->delete();
-        return redirect()->route('admin.menu')->with('success', 'Product deleted successfully!');
     }
 
     public function feedback()

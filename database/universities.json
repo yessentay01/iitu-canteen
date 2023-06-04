@@ -1,0 +1,19 @@
+{
+    "universities": [
+        {
+            "name": "International IT University",
+            "description": "International IT University or International university of information technologies - established in close collaboration with educational organization iCarnegie which represents American IT university Carnegie Mellon in 2009.",
+            "image": ""
+        },
+        {
+            "name": "Satbayev University",
+            "description": "Satbayev University is a technical university located in Almaty, Kazakhstan. The university is the oldest technical university in Kazakhstan, comprising 10 institutions and 27 departments.",
+            "image": ""
+        },
+        {
+            "name": "Suleyman Demirel University",
+            "description": "Suleyman Demirel University is a private university in Kaskelen, Almaty, Kazakhstan. It is named after Süleyman Demirel, the former prime minister and president of Turkey.",
+            "image": ""
+        }
+    ]
+}

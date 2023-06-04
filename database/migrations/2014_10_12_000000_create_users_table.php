@@ -19,10 +19,9 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->boolean('is_admin')->nullable();
-            $table->string('status')->nullable();
             $table->double('bonus')->default(0);
-            $table->string('university')->nullable();
+            $table->foreignId('university_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('role_id')->constrained()->cascadeOnDelete();
             $table->rememberToken();
             $table->timestamps();
         });

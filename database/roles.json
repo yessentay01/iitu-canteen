@@ -1,0 +1,25 @@
+{
+    "roles": [
+        {
+            "name": "User"
+        },
+        {
+            "name": "Student"
+        },
+        {
+            "name": "Teacher"
+        },
+        {
+            "name": "Employee"
+        },
+        {
+            "name": "Courier"
+        },
+        {
+            "name": "Admin"
+        },
+        {
+            "name": "root"
+        }
+    ]
+}

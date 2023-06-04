@@ -19,7 +19,8 @@ return new class extends Migration
             $table->string('name');
             $table->string('ingredients')->nullable();
             $table->string('price');
-            $table->string('category_name');
+            $table->foreignId('category_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('university_id')->constrained()->cascadeOnDelete();
             $table->boolean('is_publish');
             $table->timestamps();
         });

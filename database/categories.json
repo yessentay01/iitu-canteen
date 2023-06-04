@@ -1,0 +1,54 @@
+{
+    "categories": [
+        {
+            "name": "Soups",
+            "university_id": 1
+        },
+        {
+            "name": "Main dishes",
+            "university_id": 1
+        },
+        {
+            "name": "Desserts",
+            "university_id": 1
+        },
+        {
+            "name": "Drinks",
+            "university_id": 1
+        },
+
+        {
+            "name": "Soups",
+            "university_id": 2
+        },
+        {
+            "name": "Main dishes",
+            "university_id": 2
+        },
+        {
+            "name": "Desserts",
+            "university_id": 2
+        },
+        {
+            "name": "Drinks",
+            "university_id": 2
+        },
+
+        {
+            "name": "Soups",
+            "university_id": 3
+        },
+        {
+            "name": "Main dishes",
+            "university_id": 3
+        },
+        {
+            "name": "Desserts",
+            "university_id": 3
+        },
+        {
+            "name": "Drinks",
+            "university_id": 3
+        }
+    ]
+}

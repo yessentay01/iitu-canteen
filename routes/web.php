@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [App\Http\Controllers\WelcomeController::class, 'index'])->name('welcome');
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('auth');;
 Route::get('/favorites', [App\Http\Controllers\FavoritesController::class, 'index'])->name('favorites');
 Route::get('/basket', [App\Http\Controllers\BasketController::class, 'index'])->name('basket');
 Route::post('/basket', [App\Http\Controllers\BasketController::class, 'store'])->name('basket.store');

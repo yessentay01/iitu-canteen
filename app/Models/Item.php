@@ -9,4 +9,12 @@ class Item extends Model
 {
     use HasFactory;
     protected $guarded = [];
+    public function university()
+    {
+        return $this->belongsTo(University::class);
+    }
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
 }
