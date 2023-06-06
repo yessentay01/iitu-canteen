@@ -24,7 +24,7 @@
             </div>
         @endif
         <div class="flex justify-between align-items-center mb-4">
-            <h2>Menu</h2>
+            <h2 class="title  mb-4">Menu</h2>
             <a class="profile_logout" href="{{route('admin.menu.add')}}">Add a new dish</a>
         </div>
         <table id="table" class="stripe hover" style="width:100%; padding-top: 1em;  padding-bottom: 1em;">

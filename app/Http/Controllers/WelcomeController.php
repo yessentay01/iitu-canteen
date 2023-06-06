@@ -16,10 +16,10 @@ class WelcomeController extends Controller
         $items = Item::all();
         $orders = Order::all();
 
-        $starters = Item::where('items.category_name', '=', '1')->get();
-        $breakfasts = Item::where('items.category_name', '=', '2')->get();
-        $lunches= Item::where('items.category_name', '=', '3')->get();
-        $dinners = Item::where('items.category_name', '=', '4')->get();
+        $starters = Item::where('items.category_id', '=', '1')->get();
+        $breakfasts = Item::where('items.category_id', '=', '2')->get();
+        $lunches= Item::where('items.category_id', '=', '3')->get();
+        $dinners = Item::where('items.category_id', '=', '4')->get();
         return view('welcome', compact('starters', 'breakfasts', 'lunches', 'dinners', 'users', 'items', 'orders' ));
     }
 }

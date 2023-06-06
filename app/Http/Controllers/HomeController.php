@@ -31,22 +31,17 @@ class HomeController extends Controller
         $favorites = Favorites::all();
         $role = auth()->user()->role->id;
 
-        if ($role == 1){
+        if ($role == 1) {
             return view('pages.home.user');
         }
-        if ($role == 2 || $role == 3){
-            if (request('search')) {
-                $items = Item::where('items.name', 'like', '%' . request('search') . '%')->get();
-            } else {
-                $items = Item::all();
-            }
-            return view('pages.home.student', compact('categories', 'items', 'favorites'));
-        }
-        if ($role == 4 || $role == 6){
-            $items = Item::all();
-            return view('pages.admin.menu', compact('items'));
 
+        if (request('search')) {
+            $items = Item::where('items.name', 'like', '%' . request('search') . '%')->get();
+        } else {
+            $items = Item::all();
         }
+        return view('pages.home.student', compact('categories', 'items', 'favorites'));
+
     }
 
     public function addToCart($id)
@@ -55,7 +50,7 @@ class HomeController extends Controller
 
         $cart = session()->get('cart', []);
 
-        if(isset($cart[$id])) {
+        if (isset($cart[$id])) {
             $cart[$id]['quantity']++;
         } else {
             $cart[$id] = [
@@ -73,16 +68,17 @@ class HomeController extends Controller
         return redirect()->back()->with('success', 'Product added to cart successfully!');
     }
 
-    public function addToFavorites($id){
+    public function addToFavorites($id)
+    {
         $items = Favorites::where('item_id', '=', $id)
             ->where('user_id', '=', auth()->user()->id)
             ->get();
-        if(count($items) > 0){
-            foreach ($items as $item){
+        if (count($items) > 0) {
+            foreach ($items as $item) {
                 DB::table('favorites')->delete($item->id);
             }
             return redirect()->back()->with('success', 'Product successfully removed from favorites!');
-        }else{
+        } else {
             Favorites::create([
                 'user_id' => auth()->user()->id,
                 'item_id' => $id,
@@ -93,7 +89,7 @@ class HomeController extends Controller
 
     public function update(Request $request)
     {
-        if($request->id && $request->quantity){
+        if ($request->id && $request->quantity) {
             $cart = session()->get('cart');
             $cart[$request->id]["quantity"] = $request->quantity;
             session()->put('cart', $cart);
@@ -108,9 +104,9 @@ class HomeController extends Controller
      */
     public function remove(Request $request)
     {
-        if($request->id) {
+        if ($request->id) {
             $cart = session()->get('cart');
-            if(isset($cart[$request->id])) {
+            if (isset($cart[$request->id])) {
                 unset($cart[$request->id]);
                 session()->put('cart', $cart);
             }

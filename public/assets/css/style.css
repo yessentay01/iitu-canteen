@@ -47,6 +47,7 @@
     flex-grow: 0;
     flex-shrink: 0;
     position: relative;
+    border: 1px solid #ccc;
 
 }
 
@@ -79,6 +80,7 @@
     font-size: 24px;
     font-weight: 700;
     color: var(--color-primary);
+    margin-bottom: 15px;
 }
 
 .category_item_buttons {
@@ -108,6 +110,9 @@
     opacity: 0.85;
     color: #fff;
 }
+.not_available{
+    background-color: #ccc;
+}
 
 .category_item_fav-button svg {
     width: 26px;
@@ -128,6 +133,7 @@
     }
     .category_item_price {
         font-size: 20px;
+        margin-bottom: 15px;
     }
     .btm-nav-label{
         font-size: 12px;

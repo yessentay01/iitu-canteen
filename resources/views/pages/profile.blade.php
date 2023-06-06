@@ -12,6 +12,8 @@
         }
         .profile_info{
             display: flex;
+            border:1px solid #ccc;
+            padding: 10px;
             justify-content: space-between;
         }
         .profile_item{
@@ -19,9 +21,12 @@
             padding: 15px;
             border-radius: 10px;
             margin-bottom: 20px;
+
         }
         .profile_item_title{
             margin-bottom: 15px;
+            font-size: 22px;
+            font-weight: 400;
         }
         .profile_logout{
             width: 100%;
@@ -59,7 +64,7 @@
                 {{ session('success') }}
             </div>
         @endif
-        <h1 class="mb-2">Hello, {{$user->name}}!</h1>
+        <h1 class="mb-2 title">Hello, {{$user->name}}!</h1>
         <div class="profile_item">
             <h3 class="profile_item_title">Personal data</h3>
             <div class="profile_info">

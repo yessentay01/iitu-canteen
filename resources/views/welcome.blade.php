@@ -42,11 +42,8 @@
         <nav id="navbar" class="navbar">
             <ul>
                 <li><a href="#hero">Home</a></li>
-                <li><a href="#about">About</a></li>
                 <li><a href="#menu">Menu</a></li>
-                {{--                <li><a href="#events">Events</a></li>--}}
                 <li><a href="#partners">Partners</a></li>
-                {{--                <li><a href="#gallery">Gallery</a></li>--}}
                 <li><a href="#contact">Contact</a></li>
                 @if (Route::has('login'))
                     @auth
@@ -87,42 +84,11 @@
             </div>
         </div>
     </div>
-</section><!-- End Hero Section -->
+</section>
 
 <main id="main">
 
-    {{--    <!-- ======= About Section ======= -->--}}
-    {{--    <section id="about" class="about">--}}
-    {{--        <div class="container" data-aos="fade-up">--}}
 
-    {{--            <div class="section-header">--}}
-    {{--                <h2>About Us</h2>--}}
-    {{--                <p>Learn More <span>About Us</span></p>--}}
-    {{--            </div>--}}
-
-    {{--            <div class="row gy-4">--}}
-    {{--                <div class="col-lg-7 position-relative about-img"--}}
-    {{--                     style="background-image: url('{{asset('assets/img/iitu-partners.jpg')}}') ;" data-aos="fade-up"--}}
-    {{--                     data-aos-delay="150">--}}
-    {{--                </div>--}}
-    {{--                <div class="col-lg-5 d-flex align-items-start" data-aos="fade-up" data-aos-delay="300">--}}
-    {{--                    <div class="content ps-0 ps-lg-5">--}}
-    {{--                        <p class="fst-italic">--}}
-    {{--                            Welcome, dear teacher, student! We are glad to see you here again, so what would you like to order today ?--}}
-
-    {{--                            <br>--}}
-    {{--                            Quickly go to the menu and see what's on today. We are waiting for you and your application with impatience! It tastes better with us!--}}
-    {{--                        </p>--}}
-    {{--                    </div>--}}
-    {{--                </div>--}}
-    {{--            </div>--}}
-
-    {{--        </div>--}}
-    {{--    </section><!-- End About Section -->--}}
-
-
-
-    <!-- ======= Stats Counter Section ======= -->
     <section id="stats-counter" class="stats-counter">
         <div class="container" data-aos="zoom-out">
 

@@ -18,7 +18,7 @@ class AdminController extends Controller
 
     public function users()
     {
-        if (!auth()->user()->is_admin) {
+        if (!auth()->user()->role->id == 4 || !auth()->user()->role->id == 6 || !auth()->user()->role->id == 7 ) {
             return redirect()->route('home');
         }
         $users = User::all();
@@ -28,7 +28,7 @@ class AdminController extends Controller
 
     public function menu()
     {
-        if (!auth()->user()->is_admin) {
+        if (!auth()->user()->role->id == 4 || !auth()->user()->role->id == 6 || !auth()->user()->role->id == 7 ) {
             return redirect()->route('home');
         }
         $items = Item::all();
@@ -36,7 +36,7 @@ class AdminController extends Controller
     }
 
     public function menuAdd(){
-        if ( auth()->user()->role->id == 3 || auth()->user()->role->id == 4) {
+        if (auth()->user()->role->id == 4 || auth()->user()->role->id == 6 || auth()->user()->role->id == 7 ) {
             $categories = Category::all();
             return view('pages.admin.menu.add', compact('categories'));
         }else {
@@ -70,7 +70,7 @@ class AdminController extends Controller
     }
 
     public function menuEdit($id){
-        if ( auth()->user()->role->id == 3 || auth()->user()->role->id == 4) {
+        if (auth()->user()->role->id == 4 || auth()->user()->role->id == 6 || auth()->user()->role->id == 7 ) {
             $item = Item::findorfail((int)$id);
             return view('pages.admin.menu.edit', compact('item'));
         }else{
@@ -98,7 +98,7 @@ class AdminController extends Controller
     }
 
     public function menuDelete($id){
-        if (auth()->user()->role->id == 3 || auth()->user()->role->id == 4) {
+        if (auth()->user()->role->id == 4 || auth()->user()->role->id == 6 || auth()->user()->role->id == 7 ) {
             $item = Item::findorfail((int)$id);
             $item->delete();
             return redirect()->route('admin.menu')->with('success', 'Product deleted successfully!');
@@ -109,7 +109,7 @@ class AdminController extends Controller
 
     public function feedback()
     {
-        if (!auth()->user()->is_admin) {
+        if (!auth()->user()->role->id == 4 || !auth()->user()->role->id == 6 || !auth()->user()->role->id == 7 ) {
             return redirect()->route('home');
         }
         $feedbacks = Feedback::join('orders', 'orders.order_id' , '=', 'feedback.order_id')
@@ -122,7 +122,7 @@ class AdminController extends Controller
 
     public function orders()
     {
-        if (!auth()->user()->is_admin) {
+        if (!auth()->user()->role->id == 4 || !auth()->user()->role->id == 6 || !auth()->user()->role->id == 7 ) {
             return redirect()->route('home');
         }
 
@@ -149,10 +149,14 @@ class AdminController extends Controller
 
     public function categories()
     {
-        if (!auth()->user()->is_admin) {
+        if (!auth()->user()->role->id == 4 || !auth()->user()->role->id == 6 || !auth()->user()->role->id == 7 ) {
             return redirect()->route('home');
         }
-        $categories = Category::all();
+        if(auth()->user()->role->id == 4 || auth()->user()->role->id == 6){
+            $categories = Category::where('university_id', '=', auth()->user()->university->id)->get();
+        }else{
+            $categories = Category::all();
+        }
         return view('pages.admin.categories', compact('categories'));
     }
 

@@ -2,7 +2,7 @@
 
 @section('admin_content')
     <div class="admin_content">
-        <h2>Menu</h2>
+        <h2 class="title  mb-4">Menu</h2>
         <table id="table" class="stripe hover" style="width:100%; padding-top: 1em;  padding-bottom: 1em;">
             <thead>
             <tr>

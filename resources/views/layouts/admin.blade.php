@@ -6,7 +6,7 @@
         <link href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.dataTables.min.css" rel="stylesheet">
         <style>
             .admin_content{
-                padding: 140px 0;
+                padding: 70px 0;
             }
             body {
                 touch-action: pan-x pan-y;

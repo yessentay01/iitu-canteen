@@ -40,9 +40,14 @@
 {{--                                        <p class="category_item_description">{{$item->ingredients}}</p>--}}
                                         <p class="category_item_price">₸{{$item->price}}</p>
                                         <div class="category_item_buttons">
+                                            @if($item->is_publish)
                                             <a href="{{ route('add.to.cart', $item->id) }}"
-                                               class="category_item_button">Add
-                                                to basket</a>
+                                               class="category_item_button"
+                                            >Add to basket</a>
+                                            @else
+                                                <a class="category_item_button not_available"
+                                                >Not available</a>
+                                            @endif
                                             <a href="{{route('add.to.favorites', $item->id)}}"
                                                class="category_item_fav-button ">
                                                 @php

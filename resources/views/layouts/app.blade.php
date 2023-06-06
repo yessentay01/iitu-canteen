@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="bg-gray-50">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="bg-white">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
@@ -33,10 +33,18 @@
         body {
             touch-action: pan-x pan-y;
         }
+        .title{
+            font-size: 24px;
+        }
+        @media screen and (max-width: 600px) {
+            .title {
+                font-size: 24px;
+            }
+        }
     </style>
 </head>
 <body>
-<div id="app" class="bg-gray-50">
+<div id="app" class="bg-white">
 
     <header id="header" class="header fixed-top d-flex align-items-center">
         <div class=" px-3 w-full d-flex align-items-center justify-content-between">
@@ -82,11 +90,15 @@
                 </form>
             </div>
         @endif
-        <div class="p-4 sm:ml-64 bg-white">
-            @yield('content')
-        </div>
-
-
+        @if(isset(auth()->user()->id))
+            <div class="p-4 sm:ml-64 bg-white">
+                @yield('content')
+            </div>
+        @else
+            <div class="p-4">
+                @yield('content')
+            </div>
+        @endif
         @if(isset(auth()->user()->id))
             @include('../pages/components/navbar')
         @endif

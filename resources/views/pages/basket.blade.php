@@ -3,11 +3,14 @@
 @section('content')
     <style>
         .basket {
-            padding: 120px 0;
+            padding: 30px 0;
             max-width: 800px;
             margin:auto;
         }
-
+        .title{
+            font-size: 32px;
+            font-weight: 600;
+        }
         table {
             border: 1px solid #ccc;
             border-collapse: collapse;
@@ -69,7 +72,10 @@
                 border: 0;
             }
             .basket {
-                padding: 85px 0;
+                padding: 25px 0;
+            }
+            .title{
+                font-size: 24px;
             }
             table caption {
                 font-size: 1.3em;
@@ -132,7 +138,7 @@
             <form action="{{route('basket.store')}}" method="post">
                 @csrf
                 <div id="step1" class="step_content">
-                    <h3>Shopping Cart</h3>
+                    <h3 class="title" >Shopping Cart</h3>
                     <div class="">
                         <table>
                             <thead>
@@ -213,7 +219,7 @@
             </form>
 
         @else
-            <div class="mx-3">
+            <div class="mx-3" style="margin-top: 50px">
                 <h4>You haven't added anything to your cart yet</h4>
                 <a class="profile_logout mt-6" href="{{route('home')}}">Choose food</a>
             </div>
