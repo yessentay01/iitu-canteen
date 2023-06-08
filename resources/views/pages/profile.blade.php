@@ -116,7 +116,7 @@
                                    class="profile_logout feedback_btn">Feedback</a>
                             @endif
                             @if($order->status === 'Not paid')
-                                <a href="https://wa.me/77002161306?text=Я%20хотел%20оплатить%20заказ%20под%20номером%20{{$order->order_id}}"
+                                <a href="https://wa.me/77762335143?text=Я%20хотел%20оплатить%20заказ%20под%20номером%20{{$order->order_id}}"
                                    target="_blank" class="profile_logout feedback_btn">Paid</a>
                             @endif
                         </div>

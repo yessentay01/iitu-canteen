@@ -58,7 +58,7 @@ class BasketController extends Controller
         $user->bonus = (string)($bouns + (double)$user->bonus);
         $user->save();
         Session::forget('cart');
-        $url = 'https://wa.me/77002161306';
+        $url = 'https://wa.me/77762335143';
         echo "<script>window.open('".$url."', '_blank')</script>";
         return redirect()->route('home')->with('success', 'Order created successfully');
     }
