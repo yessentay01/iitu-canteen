@@ -52,6 +52,7 @@ Route::get('/admin/feedbacks', [App\Http\Controllers\AdminController::class, 'fe
 Route::get('add-to-cart/{id}', [App\Http\Controllers\HomeController::class, 'addToCart'])->name('add.to.cart');
 Route::get('add-to-favorites/{id}', [App\Http\Controllers\HomeController::class , 'addToFavorites'])->name('add.to.favorites');
 
+Route::get('/delivered/{id}', [App\Http\Controllers\HomeController::class , 'delivered'])->name('delivered');
 
 
 Route::get('/offline', function () {

@@ -118,4 +118,15 @@ class HomeController extends Controller
             session()->flash('success', 'Product removed successfully');
         }
     }
+
+    public function delivered($id){
+        if (auth()->user()->role->id == 5) {
+            $order = Order::findorfail($id);
+            $order->status = "Issued";
+            $order->save();
+            return redirect()->back();
+        }
+        return redirect()->back();
+    }
+
 }

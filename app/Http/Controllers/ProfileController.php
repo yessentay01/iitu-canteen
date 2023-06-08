@@ -63,4 +63,8 @@ class ProfileController extends Controller
         return redirect()->route('profile')->with('success', 'Order cancelled successfully');
     }
 
+    public function getOrder($id){
+        $order = Order::where('order_id', '=', $id);
+        return $order->price;
+    }
 }

@@ -180,7 +180,7 @@
                     <h3>Delivery</h3>
                     <div>
                         <label for="date">Date*</label>
-                        <input type="date" name="date" class="order_input" id="date" readonly>
+                        <input type="date" name="date" class="order_input" id="date" required>
                         <label for="date">Time*</label>
                         <input type="time" name="time" class="order_input" id="time" required>
                         <label for="Cabinet">Cabinet</label>

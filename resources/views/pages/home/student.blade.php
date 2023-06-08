@@ -35,7 +35,8 @@
                                             <div class="col-md-4">
                                                 <div class="item">
                                                     <div class="item_top">
-                                                        <img src="{{ asset('/images/canteenv2/item.png') }}" alt="">
+{{--                                                        <img src="{{ asset('/images/canteenv2/item.png') }}" alt="">--}}
+                                                        <img src="{{url('storage/media/menu/' . $item->images)}}" alt="">
                                                     </div>
                                                     <div class="item_bottom">
                                                         <h3>{{$item->name}}</h3>

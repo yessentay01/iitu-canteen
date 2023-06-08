@@ -94,7 +94,7 @@
                 <p class="text-gray-400">{{$user->bonus}}₸</p>
             </div>
         </div>
-        @if(!auth()->user()->role_id == 5 )
+        @if(!(auth()->user()->role->id == 5))
             <div class="profile_item">
                 <h3 class="profile_item_title">My orders</h3>
                 @if(count($orders) > 0)

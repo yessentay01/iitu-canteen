@@ -48,6 +48,7 @@ class BasketController extends Controller
             'expiration_date' => $request->expiration_date,
             'date' => $request->date,
             'time' => $request->time,
+            'cabinet' => $request->cabinet,
             'user_id' => auth()->user()->id,
             'price' => $total_price,
             'status' => 'Not paid',
