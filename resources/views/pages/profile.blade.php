@@ -7,8 +7,6 @@
             max-width: 800px;
             margin: auto;
             overflow-y: scroll;
-
-
         }
 
         .profile_info {
@@ -101,7 +99,6 @@
                 <h3 class="profile_item_title">My orders</h3>
                 @if(count($orders) > 0)
                     @foreach($orders as $order)
-
                         <div class="order">
                             <p><b> Date:</b> {{$order->created_at}}</p>
                             <p><b> Order ID:</b> #{{$order->order_id}}</p>

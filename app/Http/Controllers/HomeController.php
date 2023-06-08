@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\Favorites;
 use App\Models\Item;
+use App\Models\Order;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -35,7 +36,8 @@ class HomeController extends Controller
             return view('pages.home.user');
         }
         if ($role == 5) {
-            return view('pages.home.courier');
+            $orders = Order::where('status', 'Ready for delivery')->get();
+            return view('pages.home.courier', compact('orders'));
         }
 
         if (request('search')) {
