@@ -51,7 +51,7 @@
 
     <header id="header" class="header fixed-top d-flex align-items-center">
         <div class=" px-3 w-full d-flex align-items-center justify-content-between">
-            <a href="{{route('welcome')}}" class="logo d-flex align-items-center me-auto me-lg-0">
+            <a href="#" class="logo d-flex align-items-center me-auto me-lg-0">
                 <img  src="{{ asset('/images/canteenv2/logo.png') }}" alt="">
             </a>
             @if(isset(auth()->user()->id))
