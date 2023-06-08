@@ -41,6 +41,9 @@
                 font-size: 24px;
             }
         }
+        #header{
+            background-color: #F9FAFB;
+        }
     </style>
 </head>
 <body>
@@ -49,7 +52,7 @@
     <header id="header" class="header fixed-top d-flex align-items-center">
         <div class=" px-3 w-full d-flex align-items-center justify-content-between">
             <a href="{{route('welcome')}}" class="logo d-flex align-items-center me-auto me-lg-0">
-                <h1 class="whitespace-nowrap">Canteen<span>.</span></h1>
+                <img  src="{{ asset('/images/canteenv2/logo.png') }}" alt="">
             </a>
             @if(isset(auth()->user()->id))
                 @if(auth()->user()->is_admin)
@@ -92,6 +95,7 @@
         @endif
         @if(isset(auth()->user()->id))
             <div class="p-4 sm:ml-64 bg-white">
+                <br>
                 @yield('content')
             </div>
         @else

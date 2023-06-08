@@ -20,6 +20,6 @@ class WelcomeController extends Controller
         $breakfasts = Item::where('items.category_id', '=', '2')->get();
         $lunches= Item::where('items.category_id', '=', '3')->get();
         $dinners = Item::where('items.category_id', '=', '4')->get();
-        return view('welcome', compact('starters', 'breakfasts', 'lunches', 'dinners', 'users', 'items', 'orders' ));
+        return view('welcome2', compact('starters', 'breakfasts', 'lunches', 'dinners', 'users', 'items', 'orders' ));
     }
 }

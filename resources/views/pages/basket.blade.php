@@ -179,27 +179,14 @@
                 <div id="step2" class="step_content">
                     <h3>Delivery</h3>
                     <div>
-                        <label for="date">Date</label>
+                        <label for="date">Date*</label>
                         <input type="date" name="date" class="order_input" id="date" readonly>
-                        <label for="date">Time</label>
+                        <label for="date">Time*</label>
                         <input type="time" name="time" class="order_input" id="time" required>
+                        <label for="Cabinet">Cabinet</label>
+                        <input type="text" name="cabinet" class="order_input"  id="Cabinet">
                     </div>
                 </div>
-{{--                <div id="step3" class="step_content">--}}
-{{--                    <h3>Payment</h3>--}}
-{{--                    <label for="date">Card Number</label>--}}
-{{--                    <input type="text" name="card_number" class="card_number order_input" required>--}}
-{{--                    <label for="date">Expiration date</label>--}}
-{{--                    <input type="month" name="expiration_date" class="order_input" min="2023-03" value="2023-03" required>--}}
-{{--                    <label for="date">CVV</label>--}}
-{{--                    <input type="text" name="cvv" class="cvv order_input" required>--}}
-{{--                </div>--}}
-
-                <input type="hidden" name="card_number" value="-">
-                <input type="hidden" name="expiration_date" value="-">
-                <input type="hidden" name="cvv" value="-">
-
-
                 <div id="step3" class="step_content">
                     <label class="form-control">
                         <input type="checkbox" name="bonus" />
@@ -213,7 +200,7 @@
                     <textarea type="text" name="items"  class="d-none">{{implode(" \n ",$products)}}</textarea>
                     <input type="text" name="price" value="{{$total}}" readonly class="d-none">
                     <button type="submit" class="profile_logout">Order</button>
-                    <button onclick="cancel()" class="w-100 text-red-600 mt-2">Cancel</button>
+                    <button type="button" onclick="cancel()" class="w-100 text-red-600 mt-2">Cancel</button>
                 </div>
 
             </form>
@@ -233,7 +220,7 @@
             $('.cvv').inputmask('999');
         });
         function cancel(){
-
+            Session::forget('cart');
         }
     </script>
 @endsection

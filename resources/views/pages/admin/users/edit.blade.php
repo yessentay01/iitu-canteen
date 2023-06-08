@@ -41,50 +41,18 @@
     </head>
     <section class="edit_order">
         <div class="container">
-            <form action="{{route('admin.users.update')}}" method="post" enctype="multipart/form-data">
+            <form action="{{route('admin.users.update')}}" method="post">
                 @csrf
-                <input type="hidden" name="id" value="{{$user->id}}">
                 <div>
-                    <label for="name">Name</label>
-                    <input type="text" name="name" class="order_input" id="name" value="{{$user->name}}" required>
-                    @error('name')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                    @enderror
-
-                    <label for="is_admin">Status</label>
-                    <select name="is_admin" class="order_input" id="is_admin" required>
-                        <option value="">Админ</option>
-                        <option value="">Админ</option>
+                    <label for="id">Email</label>
+                    <input type="text" name="email" class="order_input" id="id" value="{{$user->email}}" readonly>
+                    <label for="date">Status</label>
+                    <select name="role" class="order_input" id="status">
+                        @foreach($roles as $role)
+                            <option value="{{$role->id}}" {{$role->id == $user->role->id ? 'selected' : ''}}>{{$role->name}}</option>
+                        @endforeach
                     </select>
-                    @error('category_name')
-                    <span class="invalid-feedback" role="alert">
-                      <strong>{{ $message }}</strong>
-                    </span>
-                    @enderror
-
-                    <label for="ingredients">Ingredients</label>
-                    <input type="text" name="ingredients" class="order_input" id="ingredients" value="{{$item->ingredients}}">
-                    @error('ingredients')
-                    <span class="invalid-feedback" role="alert">
-                      <strong>{{ $message }}</strong>
-                    </span>
-                    @enderror
-                    <label for="price">Price</label>
-                    <input type="number" name="price" class="order_input" id="price" value="{{$item->price}}" required>
-                    @error('price')
-                    <span class="invalid-feedback" role="alert">
-                       <strong>{{ $message }}</strong>
-                    </span>
-                    @enderror
-
-                    <label for="is_publish">Available</label>
-                    <select name="is_publish" class="order_input" id="is_publish" required>
-                        <option value="1" {{$item->is_publish ? 'selected' : '' }}>Available</option>
-                        <option value="0" {{!$item->is_publish ? 'selected' : '' }}>Not available</option>
-                    </select>
-                    <button type="submit" class="profile_logout">Save</button>
+                    <button type="submit" class="profile_logout">Change Status</button>
                     <a class="cancel_btn" href="{{URL::previous()}}">Cancel</a>
                 </div>
             </form>

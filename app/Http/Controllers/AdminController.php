@@ -6,6 +6,7 @@ use App\Models\Category;
 use App\Models\Feedback;
 use App\Models\Item;
 use App\Models\Order;
+use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -18,21 +19,24 @@ class AdminController extends Controller
 
     public function users()
     {
-        if (!auth()->user()->role->id == 4 || !auth()->user()->role->id == 6 || !auth()->user()->role->id == 7 ) {
+        if (auth()->user()->role->id == 4 || auth()->user()->role->id == 6 || auth()->user()->role->id == 7 ) {
+            $users = User::all();
+            return view('pages.admin.users', compact('users'));
+        }else{
             return redirect()->route('home');
         }
-        $users = User::all();
-        return view('pages.admin.users', compact('users'));
     }
 
 
     public function menu()
     {
-        if (!auth()->user()->role->id == 4 || !auth()->user()->role->id == 6 || !auth()->user()->role->id == 7 ) {
+        if (auth()->user()->role->id == 4 || auth()->user()->role->id == 6 || auth()->user()->role->id == 7 ) {
+            $items = Item::all();
+            return view('pages.admin.menu', compact('items'));
+        }else{
             return redirect()->route('home');
         }
-        $items = Item::all();
-        return view('pages.admin.menu', compact('items'));
+
     }
 
     public function menuAdd(){
@@ -160,5 +164,21 @@ class AdminController extends Controller
         return view('pages.admin.categories', compact('categories'));
     }
 
+    public function userEdit($id)
+    {
+        if (auth()->user()->role->id == 6 || auth()->user()->role->id == 7) {
+            $user = User::findOrFail($id);
+            $roles = Role::all();
+            return view('pages.admin.users.edit', compact('user', 'roles'));
+        }else {
+            return view('pages.home');
+        }
+    }
 
+    public function updateUser(Request $request){
+        $user = User::where('email', '=', $request->email)->first();
+        $user->role_id = $request->role;
+        $user->save();
+        return redirect()->route('admin.users');
+    }
 }

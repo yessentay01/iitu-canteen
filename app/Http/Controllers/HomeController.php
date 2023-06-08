@@ -34,6 +34,9 @@ class HomeController extends Controller
         if ($role == 1) {
             return view('pages.home.user');
         }
+        if ($role == 5) {
+            return view('pages.home.courier');
+        }
 
         if (request('search')) {
             $items = Item::where('items.name', 'like', '%' . request('search') . '%')->get();

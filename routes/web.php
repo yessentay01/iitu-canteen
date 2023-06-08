@@ -29,6 +29,9 @@ Route::get('/profile/download/{id}', [App\Http\Controllers\ProfileController::cl
 Route::get('/profile/cancel/{id}', [App\Http\Controllers\ProfileController::class, 'cancelOrder'])->name('cancel');
 
 Route::get('/admin/users', [App\Http\Controllers\AdminController::class, 'users'])->name('admin.users');
+Route::get('/admin/users/edit/{id}', [App\Http\Controllers\AdminController::class, 'userEdit'])->name('admin.users.edit');
+Route::post('/admin/users/edit', [App\Http\Controllers\AdminController::class, 'updateUser'])->name('admin.users.update');
+
 
 Route::get('/admin/categories', [App\Http\Controllers\AdminController::class, 'categories'])->name('admin.categories');
 

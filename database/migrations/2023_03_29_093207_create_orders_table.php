@@ -19,9 +19,10 @@ return new class extends Migration
             $table->text('items');
             $table->string('date');
             $table->string('time');
-            $table->string('card_number');
-            $table->string('cvv');
-            $table->string('expiration_date');
+            $table->string('cabinet')->nullable();
+            $table->string('card_number')->nullable();
+            $table->string('cvv')->nullable();
+            $table->string('expiration_date')->nullable();
             $table->string('status');
             $table->string('price');
             $table->string('user_id');
