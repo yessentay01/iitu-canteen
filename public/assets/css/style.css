@@ -26,8 +26,8 @@
 }
 
 .category_items {
-    overflow: auto;
     display: flex;
+    flex-wrap: wrap;
 
 }
 
@@ -156,6 +156,11 @@
     }
     .b-nav{
         display: block;
+    }
+    .category_items {
+        display: flex;
+        overflow: auto;
+
     }
 
 }
