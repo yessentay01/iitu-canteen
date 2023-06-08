@@ -42,9 +42,12 @@ class HomeController extends Controller
 
         if (request('search')) {
             $items = Item::where('items.name', 'like', '%' . request('search') . '%')->get();
+        } else if (request('category')) {
+            $items = Item::where('items.category_id', request('category'))->get();
         } else {
             $items = Item::all();
         }
+
         return view('pages.home.student', compact('categories', 'items', 'favorites'));
 
     }

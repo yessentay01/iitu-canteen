@@ -85,3 +85,54 @@
     color: #fff;
     background-color: #d23232;
 }
+.desktop{
+    display: inline-block;
+}
+.item_mobile{
+    display: none;
+}
+.item_m{
+    display: flex;
+    width: 100%;
+    margin: 15px 0;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+    justify-content: space-between;
+}
+.item_m_info{
+    width: 80%;
+}
+.item_m_info h2{
+    font-size:18px;
+    font-weight: bold;
+    margin: 10px 0 20px;
+}
+.item_m_price{
+    font-size:18px;
+    font-weight: bold;
+    display: inline-block;
+    margin-left: 20px;
+}
+.item_m_img{
+    width: 150px;
+}
+.item_m img{
+    width: 80%;
+    margin: auto;
+}
+@media (max-width: 480px) {
+    .desktop{
+        display: none;
+    }
+    .item_mobile{
+        display: block;
+    }
+    .categoriesBtns{
+        display: flex;
+        justify-content: space-around;
+        margin-bottom: 50px;
+    }
+    .categoriesBtns input:hover{
+        color: red;
+    }
+}

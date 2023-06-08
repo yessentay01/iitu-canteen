@@ -94,7 +94,7 @@
             </div>
         @endif
         @if(isset(auth()->user()->id))
-            <div class="p-4 sm:ml-64 bg-white">
+            <div class="p-1 sm:ml-64 bg-white">
                 <br>
                 @yield('content')
             </div>
